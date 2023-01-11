@@ -23,10 +23,16 @@ public abstract class Character {
 
     }
     public void move(Vector2 move) {
-        move.x *= speed; move.y *= speed;
-        sprite.setPosition(sprite.getX() + move.x, sprite.getY() + move.y);
+        move(move.x, move.y);
     }
     public void move(float x, float y) {
+        if(x < 0 && !sprite.isFlipX()) {
+            sprite.flip(true, false);
+        }
+        else if(x > 0 && sprite.isFlipX()) {
+            sprite.flip(true, false);
+        }
+
         x *= speed; y *= speed;
         sprite.setPosition(sprite.getX() + x, sprite.getY() + y);
     }

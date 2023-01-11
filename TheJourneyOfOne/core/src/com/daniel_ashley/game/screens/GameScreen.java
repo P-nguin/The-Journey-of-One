@@ -4,6 +4,7 @@ import com.badlogic.gdx.*;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.ScreenUtils;
 import com.daniel_ashley.game.Main;
 import com.daniel_ashley.game.characters.*;
 
@@ -22,7 +23,7 @@ public class GameScreen implements Screen, InputProcessor {
         camera = new OrthographicCamera();
         camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
-        player = new Player(2f, 3f);
+        player = new Player(1f, 1f);
 
         Gdx.input.setInputProcessor(this);
     }
@@ -39,7 +40,7 @@ public class GameScreen implements Screen, InputProcessor {
 
         playerMovement();
 
-        Gdx.gl.glClearColor( 1, 0, 0, 1 );
+        ScreenUtils.clear(0, 0, 0.2f, 1);
         batch.begin();
 
         player.draw(batch);
@@ -53,7 +54,7 @@ public class GameScreen implements Screen, InputProcessor {
     }
 
     private void playerMovement() {
-        Vector2 move = Vector2.Zero;
+        Vector2 move = new Vector2(0,0);
         if(Gdx.input.isKeyPressed(Input.Keys.W)) move.y += 1;
         if(Gdx.input.isKeyPressed(Input.Keys.S)) move.y -= 1;
         if(Gdx.input.isKeyPressed(Input.Keys.A)) move.x -= 1;
