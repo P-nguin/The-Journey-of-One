@@ -11,9 +11,10 @@ public class Character {
     private Sprite sprite;
     private float health, speed;
 
-    public Character(float health, float speed) {
+    public Character(float health, float speed, float x, float y) {
         this.health = health; this.speed = speed;
         this.sprite = new Sprite();
+        sprite.setSize(x,y);
     }
 
     public Character(Texture texture, float health, float speed) {
@@ -30,26 +31,26 @@ public class Character {
     }
 
     public void move(float x, float y) {
-        if(x < 0 && !sprite.isFlipX()) {
-            sprite.flip(true, false);
-        }
-        else if(x > 0 && sprite.isFlipX()) {
-            sprite.flip(true, false);
-        }
-
         sprite.setPosition(sprite.getX()+x, sprite.getY()+y);
     }
 
     public void dispose() {
-
     }
 
     public void setTexture(Texture texture) {
         sprite.setTexture(texture);
     }
 
+    public void setTexture(TextureRegion texture) {
+        sprite.setRegion(texture);
+    }
+
     public void draw(SpriteBatch batch) {
         sprite.draw(batch);
+    }
+
+    public void flip(boolean flip) {
+        sprite.flip(flip, false);
     }
 
     public float getX() {
@@ -60,7 +61,7 @@ public class Character {
         return sprite.getY();
     }
 
-    public Sprite getSprite() {
-        return sprite;
+    public float getSpeed() {
+        return speed;
     }
 }

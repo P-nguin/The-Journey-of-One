@@ -1,5 +1,6 @@
 package com.thejourneyofone.game.characters;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.thejourneyofone.game.Resources;
@@ -7,48 +8,77 @@ import com.thejourneyofone.game.Resources.AnimationOptions;
 
 public class Player extends Character {
 
-    private boolean isRight = true, shouldFlip = false;
+    private static final float SIZEX = 134;
+    private static final float SIZEY= 47;
+
     private float timeCnt = 0;
-    private float idleBattle = 0;
-    private final float idleBattleMax = 3.0f;
-    private boolean isIdleBattle = false;
-    private AnimationOptions curAnimation;
+    private AnimationOptions curAnimation = AnimationOptions.SwordOfStormsKneel;
+
+    private boolean leftMove, rightMove;
+
+    private final float idleBattleMax = 5.0f;
+    private float idleBattleTime = 0;
+    private boolean isKneel = true;
+    private boolean isRunning = false;
+    private boolean isIdling = false;
 
     public Player(float health, float speed) {
-        super(health, speed);
-        curAnimation = AnimationOptions.SwordOfStormsKneel;
+        super(health, speed, SIZEX, SIZEY);
     }
 
     @Override
     public void update(float dt) {
         super.update(dt);
-
         timeCnt += dt;
-        if(Resources.getAnimation(curAnimation).isAnimationFinished(timeCnt)) {
-            setAnimation(AnimationOptions.SwordOfStormsIdle); idleBattle = 0;
+
+        isRunning = updateMove(dt);
+
+        if(isRunning) {
+            setAnimation(AnimationOptions.SwordOfStormsRun);
+            isKneel = false;
+            isIdling = false;
+        }
+        else if(isIdling) {
+            idleBattleTime += dt;
+            setAnimation(AnimationOptions.SwordOfStormsIdle);
+            if(idleBattleTime >= idleBattleMax) {
+                isIdling = false; isKneel = true;
+                idleBattleTime = 0;
+            }
+        }
+        else if(isKneel) setAnimation(AnimationOptions.SwordOfStormsKneel);
+        else {
+            isIdling =  true;
         }
 
-        if(isIdleBattle && idleBattle > idleBattleMax) {
-            idleBattle = 0; isIdleBattle = false;
-            setAnimation(AnimationOptions.SwordOfStormsKneel);
-        }
-        getSprite().setRegion(Resources.getAnimation(curAnimation).getKeyFrame(timeCnt));
+        setTexture(Resources.getAnimation(curAnimation).getKeyFrame(timeCnt));
     }
 
-    @Override
-    public void move(float x, float y) {
-        super.move(x, y);
+    public void setRightMove(boolean t) {
+        if(leftMove & t) leftMove = false;
+        rightMove = t;
+    }
 
-        setAnimation(AnimationOptions.SwordOfStormsRun);
+    public void setLeftMove(boolean t) {
+        if(rightMove & t) rightMove = false;
+        leftMove = t;
+    }
 
-        if(x < 0 && isRight) {
-            isRight = false;
-            shouldFlip = true;
+    public boolean updateMove(float dt) {
+        boolean ret = false;
+        float x = 0, y = 0;
+        if(rightMove) {
+            x += getSpeed() * dt;
         }
-        else if(x > 0 && !isRight) {
-            isRight = true;
-            shouldFlip = true;
+        if(leftMove) {
+            x -= getSpeed() * dt;
         }
+
+        if(x != 0 || y != 0) {
+            ret = true;
+        }
+        move(x,y);
+        return ret;
     }
 
     @Override
@@ -58,6 +88,5 @@ public class Player extends Character {
 
     private void setAnimation(AnimationOptions newAnimation) {
         curAnimation = newAnimation;
-        if(!isRight) shouldFlip = true;
     }
 }
