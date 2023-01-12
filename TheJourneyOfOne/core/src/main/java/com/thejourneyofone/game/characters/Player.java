@@ -9,6 +9,9 @@ public class Player extends Character {
 
     private boolean isRight = true, shouldFlip = false;
     private float timeCnt = 0;
+    private float idleBattle = 0;
+    private final float idleBattleMax = 3.0f;
+    private boolean isIdleBattle = false;
     private AnimationOptions curAnimation;
 
     public Player(float health, float speed) {
@@ -21,10 +24,15 @@ public class Player extends Character {
         super.update(dt);
 
         timeCnt += dt;
-
         if(Resources.getAnimation(curAnimation).isAnimationFinished(timeCnt)) {
-            
+            setAnimation(AnimationOptions.SwordOfStormsIdle); idleBattle = 0;
         }
+
+        if(isIdleBattle && idleBattle > idleBattleMax) {
+            idleBattle = 0; isIdleBattle = false;
+            setAnimation(AnimationOptions.SwordOfStormsKneel);
+        }
+        getSprite().setRegion(Resources.getAnimation(curAnimation).getKeyFrame(timeCnt));
     }
 
     @Override
@@ -44,15 +52,12 @@ public class Player extends Character {
     }
 
     @Override
-    public void draw(SpriteBatch batch) {
-        TextureRegion region = Resources.getAnimation(curAnimation).getKeyFrame(timeCnt, true);
-        region.flip(shouldFlip, false);
-        batch.draw(region, getX(), getY());
-
-        shouldFlip = false;
+    public void dispose() {
+        super.dispose();
     }
 
     private void setAnimation(AnimationOptions newAnimation) {
         curAnimation = newAnimation;
+        if(!isRight) shouldFlip = true;
     }
 }

@@ -40,6 +40,10 @@ public class Character {
         sprite.setPosition(sprite.getX()+x, sprite.getY()+y);
     }
 
+    public void dispose() {
+
+    }
+
     public void setTexture(Texture texture) {
         sprite.setTexture(texture);
     }
@@ -54,5 +58,9 @@ public class Character {
 
     public float getY() {
         return sprite.getY();
+    }
+
+    public Sprite getSprite() {
+        return sprite;
     }
 }

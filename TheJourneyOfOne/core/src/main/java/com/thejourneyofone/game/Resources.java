@@ -40,7 +40,7 @@ public class Resources {
         animationMap.put(AnimationOptions.SwordOfStormsIdle, createAnimation(0.1f, alreadyPacked, true));
 
         alreadyPacked = atlas.findRegion(parentFolder+"SwordOfStormsIdleKneel").split(134,47);
-        animationMap.put(AnimationOptions.SwordOfStormsKneel, createAnimation(0.1f, alreadyPacked, false));
+        animationMap.put(AnimationOptions.SwordOfStormsKneel, createAnimation(0.1f, alreadyPacked, true));
 
         alreadyPacked = atlas.findRegion(parentFolder+"SwordOfStormsRun").split(134,47);
         animationMap.put(AnimationOptions.SwordOfStormsRun, createAnimation(0.1f, alreadyPacked, true));
@@ -82,7 +82,8 @@ public class Resources {
         SwordOfStormsDeath,
         SwordOfStormsIdle,
         SwordOfStormsKneel,
-        SwordOfStormsRun
+        SwordOfStormsRun,
+        StormHeadAttack
     }
 
     public enum TextureOptions {
