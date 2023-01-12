@@ -1,0 +1,137 @@
+
+game.png
+size: 365, 2608
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+stormhead/StormHeadAttack
+  rotate: false
+  xy: 2, 2
+  size: 119, 2604
+  orig: 119, 2604
+  offset: 0, 0
+  index: -1
+stormhead/StormHeadDamaged
+  rotate: false
+  xy: 244, 1240
+  size: 119, 248
+  orig: 119, 248
+  offset: 0, 0
+  index: -1
+stormhead/StormHeadDeath
+  rotate: false
+  xy: 123, 248
+  size: 119, 1116
+  orig: 119, 1116
+  offset: 0, 0
+  index: -1
+stormhead/StormHeadIdle
+  rotate: false
+  xy: 244, 1490
+  size: 119, 1116
+  orig: 119, 1116
+  offset: 0, 0
+  index: -1
+stormhead/StormHeadRun
+  rotate: false
+  xy: 123, 1366
+  size: 119, 1240
+  orig: 119, 1240
+  offset: 0, 0
+  index: -1
+
+game2.png
+size: 419, 2006
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+shadow of storms/TheShadowOfStormAttack1
+  rotate: false
+  xy: 2, 2
+  size: 137, 2002
+  orig: 137, 2002
+  offset: 0, 0
+  index: -1
+shadow of storms/TheShadowOfStormsAttack2
+  rotate: false
+  xy: 141, 1094
+  size: 137, 910
+  orig: 137, 910
+  offset: 0, 0
+  index: -1
+shadow of storms/TheShadowOfStormsDamagedAndDeath
+  rotate: false
+  xy: 280, 1185
+  size: 137, 819
+  orig: 137, 819
+  offset: 0, 0
+  index: -1
+shadow of storms/TheShadowOfStormsHealChargeUp
+  rotate: false
+  xy: 280, 455
+  size: 137, 728
+  orig: 137, 728
+  offset: 0, 0
+  index: -1
+shadow of storms/TheShadowOfStormsIdleStatic
+  rotate: false
+  xy: 141, 453
+  size: 137, 91
+  orig: 137, 91
+  offset: 0, 0
+  index: -1
+shadow of storms/TheShadowOfStormsRun
+  rotate: false
+  xy: 141, 546
+  size: 137, 546
+  orig: 137, 546
+  offset: 0, 0
+  index: -1
+
+game3.png
+size: 410, 617
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+sword of storms/SwordOfStormsAttack1
+  rotate: false
+  xy: 274, 333
+  size: 134, 282
+  orig: 134, 282
+  offset: 0, 0
+  index: -1
+sword of storms/SwordOfStormsAttack2
+  rotate: false
+  xy: 138, 192
+  size: 134, 423
+  orig: 134, 423
+  offset: 0, 0
+  index: -1
+sword of storms/SwordOfStormsDamagedAndDeath
+  rotate: false
+  xy: 2, 51
+  size: 134, 564
+  orig: 134, 564
+  offset: 0, 0
+  index: -1
+sword of storms/SwordOfStormsIdle
+  rotate: false
+  xy: 138, 2
+  size: 134, 188
+  orig: 134, 188
+  offset: 0, 0
+  index: -1
+sword of storms/SwordOfStormsIdleKneel
+  rotate: false
+  xy: 2, 2
+  size: 134, 47
+  orig: 134, 47
+  offset: 0, 0
+  index: -1
+sword of storms/SwordOfStormsRun
+  rotate: false
+  xy: 274, 49
+  size: 134, 282
+  orig: 134, 282
+  offset: 0, 0
+  index: -1
