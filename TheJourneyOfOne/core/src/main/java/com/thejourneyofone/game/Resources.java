@@ -1,6 +1,7 @@
 package com.thejourneyofone.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -12,7 +13,7 @@ public class Resources {
 
     private static TextureAtlas atlas;
     private static HashMap<AnimationOptions, Animation<TextureRegion>> animationMap;
-    private static HashMap<TextureOptions, TextureRegion> textureMap;
+    private static HashMap<String, TextureRegion> textureMap;
 
     public Resources() {}
 
@@ -44,6 +45,9 @@ public class Resources {
 
         alreadyPacked = atlas.findRegion(parentFolder+"SwordOfStormsRun").split(134,47);
         animationMap.put(AnimationOptions.SwordOfStormsRun, createAnimation(0.1f, alreadyPacked, true));
+
+
+
     }
 
     public static Animation<TextureRegion> getAnimation(AnimationOptions animation) {
