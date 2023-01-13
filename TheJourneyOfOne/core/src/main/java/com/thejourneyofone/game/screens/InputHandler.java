@@ -22,6 +22,12 @@ public class InputHandler implements InputProcessor {
         if(keycode == Keys.D) {
             player.setRightMove(true);
         }
+        if(keycode == Keys.W) {
+            player.setUpMove(true);
+        }
+        if(keycode == Keys.S) {
+            player.setUpMove(true);
+        }
         return false;
     }
 
@@ -32,6 +38,12 @@ public class InputHandler implements InputProcessor {
         }
         if(keycode == Keys.D) {
             player.setRightMove(false);
+        }
+        if(keycode == Keys.W) {
+            player.setUpMove(false);
+        }
+        if(keycode == Keys.S) {
+            player.setUpMove(false);
         }
         return false;
     }

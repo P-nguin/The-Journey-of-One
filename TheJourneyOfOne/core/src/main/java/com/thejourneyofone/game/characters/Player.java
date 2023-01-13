@@ -15,7 +15,7 @@ public class Player extends Character {
     private float timeCnt = 0;
     private AnimationOptions curAnimation = AnimationOptions.SwordOfStormsKneel;
 
-    private boolean leftMove, rightMove;
+    private boolean leftMove, rightMove, upMove, downMove;
 
     private final float idleBattleMax = 5.0f;
     private float idleBattleTime = 0;
@@ -29,18 +29,18 @@ public class Player extends Character {
         super.update(dt);
         timeCnt += dt;
 
-        updateMove(dt);
+        boolean isMoving = updateMove(dt);
         updateDirection();
 
         Animation curAni = Resources.getAnimation(curAnimation);
-        if(curAni.isAnimationFinished(timeCnt) && curAni.getPlayMode() != Animation.PlayMode.LOOP) {
+        if(curAni.isAnimationFinished(timeCnt) && curAni.getPlayMode() != Animation.PlayMode.LOOP || curAnimation == AnimationOptions.SwordOfStormsRun && !isMoving) {
             setAnimation(AnimationOptions.SwordOfStormsIdle);
-            idleBattleTime += dt; timeCnt = 0;
         }
-        else idleBattleTime = 0;
 
+        if(curAnimation == AnimationOptions.SwordOfStormsIdle) idleBattleTime += dt;
         if(idleBattleTime >= idleBattleMax) {
             setAnimation(AnimationOptions.SwordOfStormsKneel);
+            idleBattleTime = 0;
         }
 
         //Flip direction of player
@@ -61,12 +61,22 @@ public class Player extends Character {
         leftMove = t;
     }
 
+    public void setUpMove(boolean t) {
+        if(downMove & t) downMove = false;
+        upMove = t;
+    }
+
+    public void setDownMove(boolean t) {
+        if(upMove & t) upMove = false;
+        downMove = t;
+    }
+
     public void attack() {
         leftMove = false; rightMove = false;
         setAnimation(AnimationOptions.SwordOfStormsAttack1);
     }
 
-    public void updateMove(float dt) {
+    public boolean updateMove(float dt) {
         boolean ret = false;
         float x = 0, y = 0;
         if(rightMove) {
@@ -78,8 +88,11 @@ public class Player extends Character {
 
         if(x != 0 || y != 0) {
             setAnimation(AnimationOptions.SwordOfStormsRun);
+            ret = true;
         }
         move(x,y);
+
+        return ret;
     }
 
     @Override
@@ -91,6 +104,7 @@ public class Player extends Character {
         if(curAnimation != newAnimation) {
             curAnimation = newAnimation;
             timeCnt = 0;
+            idleBattleTime = 0;
         }
     }
 }

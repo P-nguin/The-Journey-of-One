@@ -26,7 +26,7 @@ public class Resources {
         String parentFolder = "sword of storms/";
         int textureSizeX = Player.SIZEX, textureSizeY = Player.SIZEY;
         TextureRegion[][] alreadyPacked = atlas.findRegion(parentFolder+"SwordOfStormsAttack1").split(textureSizeX,textureSizeY);
-        animationMap.put(AnimationOptions.SwordOfStormsAttack1, createAnimation(0.12f, alreadyPacked, false));
+        animationMap.put(AnimationOptions.SwordOfStormsAttack1, createAnimation(0.112f, alreadyPacked, false));
 
         alreadyPacked = atlas.findRegion(parentFolder+"SwordOfStormsAttack2").split(textureSizeX,textureSizeY);
         animationMap.put(AnimationOptions.SwordOfStormsAttack2, createAnimation(0.1f, alreadyPacked, false));
@@ -40,7 +40,7 @@ public class Resources {
         animationMap.put(AnimationOptions.SwordOfStormsDeath, createAnimation(0.1f, alreadyPacked, false));
 
         alreadyPacked = atlas.findRegion(parentFolder+"SwordOfStormsIdle").split(textureSizeX,textureSizeY);
-        animationMap.put(AnimationOptions.SwordOfStormsIdle, createAnimation(0.1f, alreadyPacked, true));
+        animationMap.put(AnimationOptions.SwordOfStormsIdle, createAnimation(0.15f, alreadyPacked, true));
 
         alreadyPacked = atlas.findRegion(parentFolder+"SwordOfStormsIdleKneel").split(textureSizeX,textureSizeY);
         animationMap.put(AnimationOptions.SwordOfStormsKneel, createAnimation(0.1f, alreadyPacked, true));
