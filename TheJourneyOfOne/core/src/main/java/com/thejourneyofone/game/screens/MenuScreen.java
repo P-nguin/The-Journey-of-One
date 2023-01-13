@@ -8,9 +8,9 @@ import com.thejourneyofone.game.Main;
 
 public class MenuScreen implements Screen {
     private static final int EXIT_BUTTON_WIDTH = 300;
-    private static final int EXIT_BUTTON_HEIGHT = 150;
+    private static final int EXIT_BUTTON_HEIGHT = 120;
     private static final int PLAY_BUTTON_WIDTH = 300;
-    private static final int PLAY_BUTTON_HEIGHT = 150;
+    private static final int PLAY_BUTTON_HEIGHT = 120;
     private static final int EXIT_BUTTON_Y= 125;
     private static final int PLAY_BUTTON_Y= 350;
     Main game;
@@ -42,12 +42,18 @@ public class MenuScreen implements Screen {
         int x = Main.WIDTH / 2 - EXIT_BUTTON_WIDTH/2;
         if(Gdx.input.getX() < x + EXIT_BUTTON_WIDTH && Gdx.input.getX() > x &&  Main.HEIGHT - Gdx.input.getY()< EXIT_BUTTON_Y  + EXIT_BUTTON_HEIGHT && Main.HEIGHT - Gdx.input.getY() > EXIT_BUTTON_Y){
             game.batch.draw(exitButtonActive, x, EXIT_BUTTON_Y,EXIT_BUTTON_WIDTH, EXIT_BUTTON_HEIGHT);
+            if(Gdx.input.isTouched()){
+                Gdx.app.exit();
+            }
         }else{
             game.batch.draw(exitButtonInactive, x, EXIT_BUTTON_Y,EXIT_BUTTON_WIDTH, EXIT_BUTTON_HEIGHT);
         }
         int x2 = Main.WIDTH / 2 - PLAY_BUTTON_WIDTH/2;
         if(Gdx.input.getX() < x + PLAY_BUTTON_WIDTH && Gdx.input.getX() > x &&  Main.HEIGHT - Gdx.input.getY()< PLAY_BUTTON_Y  + PLAY_BUTTON_HEIGHT && Main.HEIGHT - Gdx.input.getY() > PLAY_BUTTON_Y){
             game.batch.draw(playButtonActive, x2, PLAY_BUTTON_Y,PLAY_BUTTON_WIDTH, PLAY_BUTTON_HEIGHT);
+            if(Gdx.input.isTouched()){
+                game.setScreen(new GameScreen(game));
+            }
         }else{
             game.batch.draw(playButtonInactive, x2, PLAY_BUTTON_Y,PLAY_BUTTON_WIDTH, PLAY_BUTTON_HEIGHT);
         }
