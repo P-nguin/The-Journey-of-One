@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
+import com.thejourneyofone.game.characters.Player;
 
 import java.util.HashMap;
 
@@ -23,13 +24,14 @@ public class Resources {
         textureMap = new HashMap<>();
 
         String parentFolder = "sword of storms/";
-        TextureRegion[][] alreadyPacked = atlas.findRegion(parentFolder+"SwordOfStormsAttack1").split(134,47);
-        animationMap.put(AnimationOptions.SwordOfStormsAttack1, createAnimation(0.1f, alreadyPacked, false));
+        int textureSizeX = Player.SIZEX, textureSizeY = Player.SIZEY;
+        TextureRegion[][] alreadyPacked = atlas.findRegion(parentFolder+"SwordOfStormsAttack1").split(textureSizeX,textureSizeY);
+        animationMap.put(AnimationOptions.SwordOfStormsAttack1, createAnimation(0.12f, alreadyPacked, false));
 
-        alreadyPacked = atlas.findRegion(parentFolder+"SwordOfStormsAttack2").split(134,47);
+        alreadyPacked = atlas.findRegion(parentFolder+"SwordOfStormsAttack2").split(textureSizeX,textureSizeY);
         animationMap.put(AnimationOptions.SwordOfStormsAttack2, createAnimation(0.1f, alreadyPacked, false));
 
-        alreadyPacked = atlas.findRegion(parentFolder+"SwordOfStormsDamagedAndDeath").split(134,47);
+        alreadyPacked = atlas.findRegion(parentFolder+"SwordOfStormsDamagedAndDeath").split(textureSizeX,textureSizeY);
         animationMap.put(AnimationOptions.SwordOfStormsDamaged, createAnimation(0.1f, new TextureRegion[][]{{alreadyPacked[0][0], alreadyPacked[1][0]}}, false));
 
         alreadyPacked =
@@ -37,17 +39,14 @@ public class Resources {
                                         alreadyPacked[7][0], alreadyPacked[8][0], alreadyPacked[9][0], alreadyPacked[10][0], alreadyPacked[11][0]}};
         animationMap.put(AnimationOptions.SwordOfStormsDeath, createAnimation(0.1f, alreadyPacked, false));
 
-        alreadyPacked = atlas.findRegion(parentFolder+"SwordOfStormsIdle").split(134,47);
+        alreadyPacked = atlas.findRegion(parentFolder+"SwordOfStormsIdle").split(textureSizeX,textureSizeY);
         animationMap.put(AnimationOptions.SwordOfStormsIdle, createAnimation(0.1f, alreadyPacked, true));
 
-        alreadyPacked = atlas.findRegion(parentFolder+"SwordOfStormsIdleKneel").split(134,47);
+        alreadyPacked = atlas.findRegion(parentFolder+"SwordOfStormsIdleKneel").split(textureSizeX,textureSizeY);
         animationMap.put(AnimationOptions.SwordOfStormsKneel, createAnimation(0.1f, alreadyPacked, true));
 
-        alreadyPacked = atlas.findRegion(parentFolder+"SwordOfStormsRun").split(134,47);
+        alreadyPacked = atlas.findRegion(parentFolder+"SwordOfStormsRun").split(textureSizeX,textureSizeY);
         animationMap.put(AnimationOptions.SwordOfStormsRun, createAnimation(0.1f, alreadyPacked, true));
-
-
-
     }
 
     public static Animation<TextureRegion> getAnimation(AnimationOptions animation) {

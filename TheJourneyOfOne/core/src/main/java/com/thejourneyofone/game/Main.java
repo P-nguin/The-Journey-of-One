@@ -23,7 +23,7 @@ public class Main extends Game {
 		batch = new SpriteBatch();
 		Resources.load();
 
-		this.setScreen(new GameScreen(this));
+		this.setScreen(new MenuScreen(this));
 	}
 
 	@Override

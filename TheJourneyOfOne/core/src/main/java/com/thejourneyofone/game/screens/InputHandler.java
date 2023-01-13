@@ -1,6 +1,8 @@
 package com.thejourneyofone.game.screens;
 
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Input.Keys;
+import com.badlogic.gdx.Input.Buttons;
 import com.badlogic.gdx.InputProcessor;
 import com.thejourneyofone.game.characters.Player;
 
@@ -41,6 +43,9 @@ public class InputHandler implements InputProcessor {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+        if(button == Buttons.LEFT) {
+            player.attack();
+        }
         return false;
     }
 

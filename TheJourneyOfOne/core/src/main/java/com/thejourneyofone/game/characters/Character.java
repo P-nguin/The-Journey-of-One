@@ -11,6 +11,9 @@ public class Character {
     private Sprite sprite;
     private float health, speed;
 
+    private String curDirection; //R or L
+    private boolean flip = false;
+
     public Character(float health, float speed, float x, float y) {
         this.health = health; this.speed = speed;
         this.sprite = new Sprite();
@@ -32,6 +35,9 @@ public class Character {
 
     public void move(float x, float y) {
         sprite.setPosition(sprite.getX()+x, sprite.getY()+y);
+
+        if(x < 0) curDirection = "L";
+        else if(x > 0) curDirection = "R";
     }
 
     public void dispose() {
@@ -49,16 +55,35 @@ public class Character {
         sprite.draw(batch);
     }
 
-    public void flip(boolean flip) {
-        sprite.flip(flip, false);
+    public void updateDirection() {
+        if(curDirection == "L") {
+            flip = true;
+        }
+        else flip = false;
     }
 
     public float getX() {
         return sprite.getX();
     }
 
+    public boolean shouldFlip() {
+        return flip;
+    }
+
     public float getY() {
         return sprite.getY();
+    }
+
+    public Vector2 getPosition() {
+        return new Vector2(getX(), getY());
+    }
+
+    public void setSize(float x, float y) {
+        sprite.setSize(x,y);
+    }
+
+    public Vector2 getSize() {
+        return new Vector2(sprite.getHeight(), sprite.getWidth());
     }
 
     public float getSpeed() {
