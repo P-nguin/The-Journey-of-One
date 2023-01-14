@@ -26,7 +26,7 @@ public class InputHandler implements InputProcessor {
             player.setUpMove(true);
         }
         if(keycode == Keys.S) {
-            player.setUpMove(true);
+            player.setDownMove(true);
         }
         return false;
     }
@@ -43,7 +43,7 @@ public class InputHandler implements InputProcessor {
             player.setUpMove(false);
         }
         if(keycode == Keys.S) {
-            player.setUpMove(false);
+            player.setDownMove(false);
         }
         return false;
     }

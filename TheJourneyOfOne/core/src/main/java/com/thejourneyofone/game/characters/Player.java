@@ -1,27 +1,31 @@
 package com.thejourneyofone.game.characters;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.thejourneyofone.game.Resources;
 import com.thejourneyofone.game.Resources.AnimationOptions;
+import com.thejourneyofone.game.screens.GameScreen;
 
 public class Player extends Character {
 
     public static final int SIZEX = 134;
     public static final int SIZEY= 47;
+    private static final int OFFSETLEFT = 99;
+    private static final int OFFSETRIGHT = 35;
+    private static final int BODYWIDTH = 11;
 
     private float timeCnt = 0;
     private AnimationOptions curAnimation = AnimationOptions.SwordOfStormsKneel;
 
     private boolean leftMove, rightMove, upMove, downMove;
+    private boolean prevLeftMove, prevRightMove, prevUpMove, prevDownMove;
 
     private final float idleBattleMax = 5.0f;
     private float idleBattleTime = 0;
 
     public Player(float health, float speed) {
-        super(health, speed, SIZEX, SIZEY);
+        super(health, speed, SIZEX / GameScreen.PPM*2.5f, SIZEY / GameScreen.PPM*2.5f, OFFSETLEFT, OFFSETRIGHT, BODYWIDTH);
     }
 
     @Override
@@ -34,6 +38,10 @@ public class Player extends Character {
 
         Animation curAni = Resources.getAnimation(curAnimation);
         if(curAni.isAnimationFinished(timeCnt) && curAni.getPlayMode() != Animation.PlayMode.LOOP || curAnimation == AnimationOptions.SwordOfStormsRun && !isMoving) {
+            if(curAnimation == AnimationOptions.SwordOfStormsAttack1) {
+                checkKeys();
+            }
+
             setAnimation(AnimationOptions.SwordOfStormsIdle);
         }
 
@@ -47,8 +55,16 @@ public class Player extends Character {
         TextureRegion keyFrame = Resources.getAnimation(curAnimation).getKeyFrame(timeCnt);
         if(shouldFlip() != keyFrame.isFlipX()) {
             keyFrame.flip(true, false);
+
         }
         setTexture(Resources.getAnimation(curAnimation).getKeyFrame(timeCnt));
+    }
+
+    private void checkKeys() {
+        downMove = prevDownMove;
+        upMove = prevUpMove;
+        rightMove = prevRightMove;
+        leftMove = prevLeftMove;
     }
 
     public void setRightMove(boolean t) {
@@ -72,7 +88,8 @@ public class Player extends Character {
     }
 
     public void attack() {
-        leftMove = false; rightMove = false;
+        prevLeftMove = leftMove; prevRightMove = rightMove; prevUpMove = upMove; prevDownMove = downMove;
+        leftMove = false; rightMove = false; upMove = false; downMove = false;
         setAnimation(AnimationOptions.SwordOfStormsAttack1);
     }
 
@@ -84,6 +101,12 @@ public class Player extends Character {
         }
         if(leftMove) {
             x -= getSpeed() * dt;
+        }
+        if(upMove) {
+            y += getSpeed() * dt;
+        }
+        if(downMove) {
+            y -= getSpeed() * dt;
         }
 
         if(x != 0 || y != 0) {
