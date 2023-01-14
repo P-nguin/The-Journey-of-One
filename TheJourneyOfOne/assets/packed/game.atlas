@@ -123,49 +123,49 @@ shadow of storms/TheShadowOfStormsRun
   index: -1
 
 game4.png
-size: 410, 617
+size: 575, 617
 format: RGBA8888
 filter: Nearest, Nearest
 repeat: none
 sword of storms/SwordOfStormsAttack1
   rotate: false
-  xy: 274, 333
-  size: 134, 282
-  orig: 134, 282
+  xy: 384, 333
+  size: 189, 282
+  orig: 189, 282
   offset: 0, 0
   index: -1
 sword of storms/SwordOfStormsAttack2
   rotate: false
-  xy: 138, 192
-  size: 134, 423
-  orig: 134, 423
+  xy: 193, 192
+  size: 189, 423
+  orig: 189, 423
   offset: 0, 0
   index: -1
 sword of storms/SwordOfStormsDamagedAndDeath
   rotate: false
   xy: 2, 51
-  size: 134, 564
-  orig: 134, 564
+  size: 189, 564
+  orig: 189, 564
   offset: 0, 0
   index: -1
 sword of storms/SwordOfStormsIdle
   rotate: false
-  xy: 138, 2
-  size: 134, 188
-  orig: 134, 188
+  xy: 193, 2
+  size: 189, 188
+  orig: 189, 188
   offset: 0, 0
   index: -1
 sword of storms/SwordOfStormsIdleKneel
   rotate: false
   xy: 2, 2
-  size: 134, 47
-  orig: 134, 47
+  size: 189, 47
+  orig: 189, 47
   offset: 0, 0
   index: -1
 sword of storms/SwordOfStormsRun
   rotate: false
-  xy: 274, 49
-  size: 134, 282
-  orig: 134, 282
+  xy: 384, 49
+  size: 189, 282
+  orig: 189, 282
   offset: 0, 0
   index: -1

@@ -9,11 +9,6 @@ import com.thejourneyofone.game.Resources;
 import com.thejourneyofone.game.screens.GameScreen;
 
 public class Character {
-
-    private float offsetLeft;
-    private float offsetRight;
-    private float bodyWidth;
-
     private Sprite sprite;
     private float health, speed;
 
@@ -22,12 +17,10 @@ public class Character {
 
     private TextureRegion region;
 
-    public Character(float health, float speed, float x, float y, float offsetLeft, float offsetRight, float boyWidth) {
+    public Character(float health, float speed, float x, float y) {
         this.health = health; this.speed = speed;
         this.sprite = new Sprite();
         sprite.setSize(x,y);
-
-        this.offsetLeft = offsetLeft; this.offsetRight = offsetRight; this.bodyWidth = boyWidth;
     }
 
     public void update(float dt) {
@@ -50,8 +43,7 @@ public class Character {
     }
 
     public void draw(SpriteBatch batch) {
-        float calculateOffset = getX() - (!isFacingRight()? offsetLeft /GameScreen.PPM : -offsetRight/GameScreen.PPM);
-        batch.draw(region, calculateOffset, getY(), getWidth(), getHeight());
+        batch.draw(region, getX(), getY(), getWidth(), getHeight());
     }
 
     public void updateDirection() {
@@ -61,13 +53,12 @@ public class Character {
         else flip = false;
     }
 
-    //use for setting camera position/getting actual coordinates of the texture
     public float getPosX() {
-        return getX() + (isFacingRight()? bodyWidth + offsetRight : -bodyWidth + offsetLeft)/GameScreen.PPM;
+        return getX() + (region.getRegionWidth() + 11)/GameScreen.PPM;
     }
 
     public float getPosY() {
-        return sprite.getY();
+        return getY() + (region.getRegionHeight())/GameScreen.PPM;
     }
 
     public float getX() {
@@ -84,10 +75,6 @@ public class Character {
 
     public float getHeight() {
         return sprite.getHeight();
-    }
-
-    public float getBodyWidth() {
-        return bodyWidth;
     }
 
     public boolean shouldFlip() {

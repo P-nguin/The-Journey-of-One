@@ -9,11 +9,8 @@ import com.thejourneyofone.game.screens.GameScreen;
 
 public class Player extends Character {
 
-    public static final int SIZEX = 134;
+    public static final int SIZEX = 189;
     public static final int SIZEY= 47;
-    private static final int OFFSETLEFT = 99;
-    private static final int OFFSETRIGHT = 35;
-    private static final int BODYWIDTH = 11;
 
     private float timeCnt = 0;
     private AnimationOptions curAnimation = AnimationOptions.SwordOfStormsKneel;
@@ -25,7 +22,7 @@ public class Player extends Character {
     private float idleBattleTime = 0;
 
     public Player(float health, float speed) {
-        super(health, speed, SIZEX / GameScreen.PPM*2.5f, SIZEY / GameScreen.PPM*2.5f, OFFSETLEFT, OFFSETRIGHT, BODYWIDTH);
+        super(health, speed, SIZEX / GameScreen.PPM*2.5f, SIZEY / GameScreen.PPM*2.5f);
     }
 
     @Override
@@ -69,22 +66,22 @@ public class Player extends Character {
 
     public void setRightMove(boolean t) {
         if(leftMove & t) leftMove = false;
-        rightMove = t;
+        rightMove = t; prevRightMove = t;
     }
 
     public void setLeftMove(boolean t) {
         if(rightMove & t) rightMove = false;
-        leftMove = t;
+        leftMove = t; prevLeftMove = t;
     }
 
     public void setUpMove(boolean t) {
         if(downMove & t) downMove = false;
-        upMove = t;
+        upMove = t; prevUpMove = t;
     }
 
     public void setDownMove(boolean t) {
         if(upMove & t) upMove = false;
-        downMove = t;
+        downMove = t; prevDownMove = t;
     }
 
     public void attack() {
@@ -94,6 +91,7 @@ public class Player extends Character {
     }
 
     public boolean updateMove(float dt) {
+        if(curAnimation == AnimationOptions.SwordOfStormsAttack1) return false;
         boolean ret = false;
         float x = 0, y = 0;
         if(rightMove) {
