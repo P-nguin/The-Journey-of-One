@@ -1,55 +1,69 @@
 package com.thejourneyofone.game.characters;
 
-import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.math.Vector2;
 import com.thejourneyofone.game.Resources;
-import com.thejourneyofone.game.Resources.AnimationOptions;
+import com.thejourneyofone.game.Resources.CharacterOptions;
+import com.thejourneyofone.game.Resources.CharacterAnimations;
 import com.thejourneyofone.game.screens.GameScreen;
 
 public class Character {
     private Sprite sprite;
     private float health, speed;
 
-    private AnimationOptions curAnimation;
+    private CharacterOptions characterType;
+    private CharacterAnimations curAnimation;
     private float timeCnt;
 
-    private String curDirection = ""; //R or L
-    private boolean flip = false;
-    private boolean leftMove;
-
     private boolean rightMove;
+    private boolean leftMove;
     private boolean upMove;
     private boolean downMove;
+    private int curDirection; //0 is right, 1 is left
 
-    private TextureRegion region;
-
-    public Character(float health, float speed, float x, float y) {
+    public Character(float health, float speed, float x, float y, CharacterOptions characterType, CharacterAnimations animation) {
         this.health = health; this.speed = speed;
+
         this.sprite = new Sprite();
         sprite.setSize(x,y);
+
+        curDirection = 0;
+        this.characterType = characterType;
+        this.curAnimation = animation;
+        timeCnt = 0;
+    }
+
+    public Character(float health, float speed, float x, float y, CharacterOptions characterType, CharacterAnimations animation, int curDirection) {
+        this.health = health; this.speed = speed;
+
+        this.sprite = new Sprite();
+        sprite.setSize(x,y);
+
+        this.characterType = characterType;
+        this.curDirection = curDirection;
+        this.curAnimation = animation;
+        timeCnt = 0;
     }
 
     public void update(float dt) {
         timeCnt += dt;
 
         updateAnimation(dt);
-        //Flip direction of character
-        TextureRegion keyFrame = Resources.getAnimation(curAnimation).getKeyFrame(timeCnt);
-        if(shouldFlip() != keyFrame.isFlipX()) {
-            keyFrame.flip(true, false);
-        }
-        setTexture(Resources.getAnimation(curAnimation).getKeyFrame(timeCnt));
     }
 
     public void updateAnimation(float dt) {
+        Animation<TextureRegion> ani = Resources.getAnimation(characterType, curAnimation, curDirection);
+        if(ani.isAnimationFinished(timeCnt) && ani.getPlayMode() != Animation.PlayMode.LOOP) {
+            setAnimation(CharacterAnimations.Idle);
+            timeCnt = 0;
+        }
 
+        sprite.setRegion(Resources.getAnimation(characterType, curAnimation, curDirection).getKeyFrame(timeCnt));
     }
 
-    public boolean updateMove(float dt) {
-        boolean ret = false;
+    public void updateMove(float dt) {
         float x = 0, y = 0;
         if(rightMove) {
             x += getSpeed() * dt;
@@ -64,24 +78,21 @@ public class Character {
             y -= getSpeed() * dt;
         }
 
-        if(x != 0 || y != 0) {
-            setAnimation(AnimationOptions.SwordOfStormsRun);
-            ret = true;
-        }
-        move(x,y);
-
-        return ret;
+        if(x != 0 || y != 0) move(x,y);
     }
 
     public void move(float x, float y) {
-        sprite.setPosition((sprite.getX()+x), (sprite.getY()+y));
+        sprite.translate(x, y);
+        setAnimation(CharacterAnimations.Run);
 
-        if(x < 0) curDirection = "L";
-        else if(x > 0) curDirection = "R";
+        if(x < 0) curDirection = 1;
+        else if(x > 0) curDirection =  0;
     }
 
-    public void attack() {
+    public void attack(int type) {
         leftMove = false; rightMove = false; upMove = false; downMove = false;
+        if(type == 1) setAnimation(CharacterAnimations.Attack1);
+        else if(type == 2) setAnimation(CharacterAnimations.Attack2);
     }
 
     public void dispose() {
@@ -90,18 +101,17 @@ public class Character {
 
     public void setTexture(TextureRegion texture) {
         sprite.setRegion(texture);
-        region = texture;
     }
 
     public void draw(SpriteBatch batch) {
-        batch.draw(region, getX(), getY(), getWidth(), getHeight());
+        sprite.draw(batch);
     }
 
-    public void updateDirection() {
-        flip = curDirection.equals("L");
+    public void updateDirection(int dir) {
+        curDirection = dir;
     }
 
-    public void setAnimation(AnimationOptions newAnimation) {
+    public void setAnimation(CharacterAnimations newAnimation) {
         if(curAnimation != newAnimation) {
             curAnimation = newAnimation;
             timeCnt = 0;
@@ -109,11 +119,11 @@ public class Character {
     }
 
     public float getPosX() {
-        return getX() + (region.getRegionWidth() + 11)/GameScreen.PPM;
+        return getX() + sprite.getWidth()/2/GameScreen.PPM;
     }
 
     public float getPosY() {
-        return getY() + (region.getRegionHeight())/GameScreen.PPM;
+        return getY();
     }
 
     public float getX() {
@@ -132,28 +142,8 @@ public class Character {
         return sprite.getHeight();
     }
 
-    public boolean shouldFlip() {
-        return flip;
-    }
-
     public float getSpeed() {
         return speed;
-    }
-
-    public boolean isLeftMove() {
-        return leftMove;
-    }
-
-    public boolean isRightMove() {
-        return rightMove;
-    }
-
-    public boolean isUpMove() {
-        return upMove;
-    }
-
-    public boolean isDownMove() {
-        return downMove;
     }
 
     public void setRightMove(boolean t) {
@@ -176,9 +166,9 @@ public class Character {
         downMove = t;
     }
 
-    public AnimationOptions getCurAnimation() {
-        return curAnimation;
-    }
+    //public AnimationOptions getCurAnimation() {
+    //    return curAnimation;
+    //}
 
     public float getTimeCnt() {
         return timeCnt;

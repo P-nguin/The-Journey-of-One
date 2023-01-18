@@ -1,10 +1,8 @@
 package com.thejourneyofone.game.characters;
 
-import com.badlogic.gdx.graphics.g2d.Animation;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.thejourneyofone.game.Resources;
-import com.thejourneyofone.game.Resources.AnimationOptions;
+import com.thejourneyofone.game.Resources.CharacterOptions;
+import com.thejourneyofone.game.Resources.CharacterAnimations;
 import com.thejourneyofone.game.screens.GameScreen;
 
 public class Player extends Character {
@@ -18,8 +16,8 @@ public class Player extends Character {
     private float idleBattleTime = 0;
 
     public Player(float health, float speed) {
-        super(health, speed, SIZEX / GameScreen.PPM*2.5f, SIZEY / GameScreen.PPM*2.5f);
-        setAnimation(AnimationOptions.SwordOfStormsKneel);
+        //Facing right, could replace 0 with a static variable that would be housed in the Resources.
+        super(health, speed, SIZEX / GameScreen.PPM*2.5f, SIZEY / GameScreen.PPM*2.5f, CharacterOptions.SwordOfStorms, CharacterAnimations.IdleKneel, 0);
     }
 
     @Override
@@ -29,23 +27,7 @@ public class Player extends Character {
 
     @Override
     public void updateAnimation(float dt) {
-        boolean isMoving = updateMove(dt);
-        updateDirection();
-
-        Animation curAni = Resources.getAnimation(getCurAnimation());
-        if(curAni.isAnimationFinished(getTimeCnt()) && curAni.getPlayMode() != Animation.PlayMode.LOOP || getCurAnimation() == AnimationOptions.SwordOfStormsRun && !isMoving) {
-            if(getCurAnimation() == AnimationOptions.SwordOfStormsAttack1) {
-                checkKeys();
-            }
-
-            setAnimation(AnimationOptions.SwordOfStormsIdle);
-        }
-
-        if(getCurAnimation() == AnimationOptions.SwordOfStormsIdle) idleBattleTime += dt;
-        if(idleBattleTime >= idleBattleMax) {
-            setAnimation(AnimationOptions.SwordOfStormsKneel);
-            idleBattleTime = 0;
-        }
+        super.updateAnimation(dt);
     }
 
     private void checkKeys() {
@@ -80,28 +62,7 @@ public class Player extends Character {
     }
 
     @Override
-    public void attack() {
-        super.attack();
-        setAnimation(AnimationOptions.SwordOfStormsAttack1);
-    }
-
-    @Override
-    public boolean updateMove(float dt) {
-        if(getCurAnimation() == AnimationOptions.SwordOfStormsAttack1) return false;
-        return super.updateMove(dt);
-    }
-
-    @Override
     public void dispose() {
         super.dispose();
-    }
-
-    @Override
-    public void setAnimation(AnimationOptions newAnimation) {
-        if(getCurAnimation() != newAnimation) {
-            idleBattleTime = 0;
-        }
-
-        super.setAnimation(newAnimation);
     }
 }

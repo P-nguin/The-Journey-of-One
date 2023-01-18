@@ -123,48 +123,104 @@ shadow of storms/TheShadowOfStormsRun
   index: -1
 
 game4.png
-size: 575, 617
+size: 1530, 476
 format: RGBA8888
 filter: Nearest, Nearest
 repeat: none
-sword of storms/SwordOfStormsAttack1
+SwordOfStorms/SwordOfStormsAttack1Left
   rotate: false
-  xy: 384, 333
+  xy: 766, 192
   size: 189, 282
   orig: 189, 282
   offset: 0, 0
   index: -1
-sword of storms/SwordOfStormsAttack2
+SwordOfStorms/SwordOfStormsAttack1Right
   rotate: false
-  xy: 193, 192
+  xy: 957, 192
+  size: 189, 282
+  orig: 189, 282
+  offset: 0, 0
+  index: -1
+SwordOfStorms/SwordOfStormsAttack2Left
+  rotate: false
+  xy: 384, 51
   size: 189, 423
   orig: 189, 423
   offset: 0, 0
   index: -1
-sword of storms/SwordOfStormsDamagedAndDeath
+SwordOfStorms/SwordOfStormsAttack2Right
   rotate: false
-  xy: 2, 51
-  size: 189, 564
-  orig: 189, 564
+  xy: 575, 51
+  size: 189, 423
+  orig: 189, 423
   offset: 0, 0
   index: -1
-sword of storms/SwordOfStormsIdle
+SwordOfStorms/SwordOfStormsDamagedLeft
   rotate: false
-  xy: 193, 2
-  size: 189, 188
-  orig: 189, 188
+  xy: 1148, 96
+  size: 189, 94
+  orig: 189, 94
   offset: 0, 0
   index: -1
-sword of storms/SwordOfStormsIdleKneel
+SwordOfStorms/SwordOfStormsDamagedRight
   rotate: false
-  xy: 2, 2
+  xy: 1339, 96
+  size: 189, 94
+  orig: 189, 94
+  offset: 0, 0
+  index: -1
+SwordOfStorms/SwordOfStormsDeathLeft
+  rotate: false
+  xy: 2, 4
+  size: 189, 470
+  orig: 189, 470
+  offset: 0, 0
+  index: -1
+SwordOfStorms/SwordOfStormsDeathRight
+  rotate: false
+  xy: 193, 4
+  size: 189, 470
+  orig: 189, 470
+  offset: 0, 0
+  index: -1
+SwordOfStorms/SwordOfStormsIdleKneelLeft
+  rotate: false
+  xy: 1148, 47
   size: 189, 47
   orig: 189, 47
   offset: 0, 0
   index: -1
-sword of storms/SwordOfStormsRun
+SwordOfStorms/SwordOfStormsIdleKneelRight
   rotate: false
-  xy: 384, 49
+  xy: 1339, 47
+  size: 189, 47
+  orig: 189, 47
+  offset: 0, 0
+  index: -1
+SwordOfStorms/SwordOfStormsIdleLeft
+  rotate: false
+  xy: 766, 2
+  size: 189, 188
+  orig: 189, 188
+  offset: 0, 0
+  index: -1
+SwordOfStorms/SwordOfStormsIdleRight
+  rotate: false
+  xy: 957, 2
+  size: 189, 188
+  orig: 189, 188
+  offset: 0, 0
+  index: -1
+SwordOfStorms/SwordOfStormsRunLeft
+  rotate: false
+  xy: 1148, 192
+  size: 189, 282
+  orig: 189, 282
+  offset: 0, 0
+  index: -1
+SwordOfStorms/SwordOfStormsRunRight
+  rotate: false
+  xy: 1339, 192
   size: 189, 282
   orig: 189, 282
   offset: 0, 0

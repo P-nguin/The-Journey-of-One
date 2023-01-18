@@ -6,17 +6,24 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.viewport.*;
+import com.thejourneyofone.game.EnemyManager;
 import com.thejourneyofone.game.Main;
 import com.thejourneyofone.game.characters.Player;
+import com.thejourneyofone.game.characters.StormOfSwordsEnemy;
 
 public class GameScreen implements Screen{
     public static final float PPM = 32;
 
     private Main game;
-    private Player player;
     private InputHandler inputHandler;
     private OrthographicCamera gameCamera;
     private ScreenViewport gamePort;
+
+    private Player player;
+
+    private EnemyManager enemyManager;
+
+    private StormOfSwordsEnemy enemy;
 
     Texture texture;
 
@@ -30,6 +37,11 @@ public class GameScreen implements Screen{
 
         player = new Player(5,12);
         inputHandler = new InputHandler(player);
+
+        enemy = new StormOfSwordsEnemy(5,6);
+        enemy.move(3,0);
+
+        enemyManager = new EnemyManager(player);
 
         texture = new Texture("libgdx.png");
     }
@@ -48,10 +60,13 @@ public class GameScreen implements Screen{
         gameCamera.position.set(player.getPosX(), player.getPosY(), 0);
         gameCamera.update();
 
+        enemy.update(delta);
+
         game.batch.setProjectionMatrix(gameCamera.combined);
         game.batch.begin();
         game.batch.draw(texture, 0, 0);
         player.draw(game.batch);
+        //enemy.draw(game.batch);
         game.batch.end();
     }
 
