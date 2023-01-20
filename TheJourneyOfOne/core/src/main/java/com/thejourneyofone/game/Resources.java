@@ -36,47 +36,16 @@ public class Resources {
 
             String parentFolder = i.name(); int cnt2 = 0;
             for(CharacterAnimations j : CharacterAnimations.values()) {
-                String test = parentFolder+"/"+i.name()+j.name()+"Left";
-                System.out.println(test);
+                System.out.println(parentFolder+"/"+i.name()+j.name()+"Left");
                 Animation uno = createAnimation(animationTimes[cnt1][cnt2], atlas.findRegion(parentFolder+"/"+i.name()+j.name()+"Left").split(animationCharactersSize[cnt1][0], animationCharactersSize[cnt1][1]), false);
-                System.out.println(test);
+                System.out.println(parentFolder+"/"+i.name()+j.name()+"Right");
                 Animation dos = createAnimation(animationTimes[cnt1][cnt2], atlas.findRegion(parentFolder+"/"+i.name()+j.name()+"Right").split(animationCharactersSize[cnt1][0], animationCharactersSize[cnt1][1]), false);
-                animationMap.get(i).put(j, new Animation[] {uno, dos});
+                animationMap.get(i).put(j, new Animation[] {dos, uno});
                 cnt2++;
             }
-
+            cnt1++;
             break; // HERE only because I don't have the other textures setup
         }
-
-        /*
-        String parentFolder = "sword of storms/";
-        loadTextureSheet(parentFolder+"SwordOfStormsAttack1Right", Player.SIZEX, Player.SIZEY,AnimationOptions.SwordOfStormsAttack1Right, false);
-        loadTextureSheet(parentFolder+"SwordOfStormsAttack1Left", Player.SIZEX, Player.SIZEY,AnimationOptions.SwordOfStormsAttack1Left, false);
-
-        loadTextureSheet(parentFolder+"SwordOfStormsAttack2Right", Player.SIZEX, Player.SIZEY,AnimationOptions.SwordOfStormsAttack2Right, false);
-        loadTextureSheet(parentFolder+"SwordOfStormsAttack2Left", Player.SIZEX, Player.SIZEY,AnimationOptions.SwordOfStormsAttack2Left, false);
-
-        loadTextureSheet(parentFolder+"SwordOfStormsIdleRight", Player.SIZEX, Player.SIZEY,AnimationOptions.SwordOfStormsAttack2Right, false);
-        loadTextureSheet(parentFolder+"SwordOfStormsIdleLeft", Player.SIZEX, Player.SIZEY,AnimationOptions.SwordOfStormsAttack2Right, false);
-
-        loadTextureSheet(parentFolder+"SwordOfStormsRunRight", Player.SIZEX, Player.SIZEY,AnimationOptions.SwordOfStormsAttack2Right, false);
-        loadTextureSheet(parentFolder+"SwordOfStormsAttack2Left", Player.SIZEX, Player.SIZEY,AnimationOptions.SwordOfStormsAttack2Right, false);
-
-        loadTextureSheet(parentFolder+"SwordOfStormsRunRight", Player.SIZEX, Player.SIZEY,AnimationOptions.SwordOfStormsAttack2Right, false);
-        loadTextureSheet(parentFolder+"SwordOfStormsRunLeft", Player.SIZEX, Player.SIZEY,AnimationOptions.SwordOfStormsAttack2Right, false);
-
-        loadTextureSheet(parentFolder+"SwordOfStormsKneelRight", Player.SIZEX, Player.SIZEY,AnimationOptions.SwordOfStormsAttack2Right, false);
-        loadTextureSheet(parentFolder+"SwordOfStormsKneelLeft", Player.SIZEX, Player.SIZEY,AnimationOptions.SwordOfStormsAttack2Right, false);
-
-        //alreadyPacked = atlas.findRegion(parentFolder+"SwordOfStormsDamagedAndDeath").split(textureSizeX,textureSizeY);
-        //animationMap.put(AnimationOptions.SwordOfStormsDamaged, createAnimation(0.1f, new TextureRegion[][]{{alreadyPacked[0][0], alreadyPacked[1][0]}}, false));
-
-        //alreadyPacked =
-        //        new TextureRegion[][] {{alreadyPacked[2][0], alreadyPacked[3][0], alreadyPacked[4][0], alreadyPacked[5][0], alreadyPacked[6][0],
-        //                                alreadyPacked[7][0], alreadyPacked[8][0], alreadyPacked[9][0], alreadyPacked[10][0], alreadyPacked[11][0]}};
-        //animationMap.put(AnimationOptions.SwordOfStormsDeath, createAnimation(0.1f, alreadyPacked, false));
-
-        */
     }
 
     public static Animation<TextureRegion> getAnimation(CharacterOptions character, CharacterAnimations animation, int dir) {

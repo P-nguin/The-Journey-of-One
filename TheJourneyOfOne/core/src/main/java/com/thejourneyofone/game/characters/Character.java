@@ -4,14 +4,16 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
 import com.thejourneyofone.game.Resources;
 import com.thejourneyofone.game.Resources.CharacterOptions;
 import com.thejourneyofone.game.Resources.CharacterAnimations;
-import com.thejourneyofone.game.screens.GameScreen;
 
 public class Character {
     private Sprite sprite;
     private float health, speed;
+
+    public Rectangle hitBox;
 
     private CharacterOptions characterType;
     private CharacterAnimations curAnimation;
@@ -23,19 +25,21 @@ public class Character {
     private boolean downMove;
     private int curDirection; //0 is right, 1 is left
 
-    public Character(float health, float speed, float x, float y, CharacterOptions characterType, CharacterAnimations animation) {
+    public Character(float health, float speed, float spriteSizeWidth, float spriteSizeHeight, float hitBoxWidth, float hitBoxHeight, CharacterOptions characterType, CharacterAnimations animation) {
         this.health = health; this.speed = speed;
 
         this.sprite = new Sprite();
-        sprite.setSize(x,y);
+        sprite.setSize(spriteSizeWidth,spriteSizeHeight);
 
         curDirection = 0;
         this.characterType = characterType;
         this.curAnimation = animation;
         timeCnt = 0;
+
+        hitBox = new Rectangle(sprite.getX(), sprite.getY(), hitBoxWidth, hitBoxWidth);
     }
 
-    public Character(float health, float speed, float x, float y, CharacterOptions characterType, CharacterAnimations animation, int curDirection) {
+    public Character(float health, float speed, float x, float y, float hitBoxWidth, float hitBoxHeight, CharacterOptions characterType, CharacterAnimations animation, int curDirection) {
         this.health = health; this.speed = speed;
 
         this.sprite = new Sprite();
@@ -45,12 +49,20 @@ public class Character {
         this.curDirection = curDirection;
         this.curAnimation = animation;
         timeCnt = 0;
+
+        hitBox = new Rectangle(x, y, hitBoxWidth, hitBoxHeight);
     }
 
     public void update(float dt) {
         timeCnt += dt;
 
+        updateMove(dt);
+        updateHitBox();
         updateAnimation(dt);
+    }
+
+    public void updateHitBox() {
+        hitBox.setPosition(getPosX() - hitBox.getWidth()/2, getPosY() - hitBox.getHeight()/2);
     }
 
     public void updateAnimation(float dt) {
@@ -119,11 +131,11 @@ public class Character {
     }
 
     public float getPosX() {
-        return getX() + sprite.getWidth()/2/GameScreen.PPM;
+        return getX() + sprite.getWidth()/2;
     }
 
     public float getPosY() {
-        return getY();
+        return getY() + sprite.getHeight()/2;
     }
 
     public float getX() {
@@ -166,11 +178,27 @@ public class Character {
         downMove = t;
     }
 
-    //public AnimationOptions getCurAnimation() {
-    //    return curAnimation;
-    //}
+    public void setTimeCnt(float timeCnt) {
+        this.timeCnt = timeCnt;
+    }
+
+    public int getCurDirection() {
+        return curDirection;
+    }
+
+    public CharacterAnimations getCurAnimation() {
+        return curAnimation;
+    }
+
+    public CharacterOptions getCharacterType() {
+        return characterType;
+    }
 
     public float getTimeCnt() {
         return timeCnt;
+    }
+
+    public void setHitBoxPosition(float x, float y) {
+        hitBox.setPosition(x,y);
     }
 }

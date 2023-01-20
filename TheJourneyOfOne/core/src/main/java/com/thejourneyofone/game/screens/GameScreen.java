@@ -2,9 +2,11 @@ package com.thejourneyofone.game.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.viewport.*;
 import com.thejourneyofone.game.EnemyManager;
 import com.thejourneyofone.game.Main;
@@ -27,6 +29,8 @@ public class GameScreen implements Screen{
 
     Texture texture;
 
+    public ShapeRenderer testing;
+
     public GameScreen(Main game) {
         this.game = game;
 
@@ -38,12 +42,14 @@ public class GameScreen implements Screen{
         player = new Player(5,12);
         inputHandler = new InputHandler(player);
 
-        enemy = new StormOfSwordsEnemy(5,6);
+        enemy = new StormOfSwordsEnemy(5,3);
         enemy.move(3,0);
 
         enemyManager = new EnemyManager(player);
 
         texture = new Texture("libgdx.png");
+
+        testing = new ShapeRenderer();
     }
 
     @Override
@@ -65,9 +71,19 @@ public class GameScreen implements Screen{
         game.batch.setProjectionMatrix(gameCamera.combined);
         game.batch.begin();
         game.batch.draw(texture, 0, 0);
+
         player.draw(game.batch);
-        //enemy.draw(game.batch);
+        enemy.draw(game.batch);
         game.batch.end();
+
+        testing.setProjectionMatrix(gameCamera.combined);
+        testing.begin(ShapeRenderer.ShapeType.Line);
+        testing.setColor(Color.RED);
+        testing.rect(player.hitBox.x, player.hitBox.y, player.hitBox.getWidth(), player.hitBox.getHeight());
+
+        testing.setColor(Color.BLUE);
+        testing.rect(enemy.hitBox.x, enemy.hitBox.y, enemy.hitBox.getWidth(), enemy.hitBox.getHeight());
+        testing.end();
     }
 
     @Override

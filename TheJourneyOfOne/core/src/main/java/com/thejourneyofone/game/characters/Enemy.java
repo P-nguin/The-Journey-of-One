@@ -9,10 +9,16 @@ import com.thejourneyofone.game.Resources.CharacterAnimations;
 public class Enemy extends Character {
 
     private float detectionRange;
+    private float cautionRange;
+    private float attackRange;
 
-    public Enemy(float health, float speed, float x, float y, CharacterOptions characterType, CharacterAnimations animations, float detectionRange) {
-        super(health, speed, x, y, characterType, animations);
-        this.detectionRange = detectionRange*detectionRange; //To avoid having to take the square root when comparing distance.
+    public Enemy(float health, float speed, float x, float y, float hitBoxWidth, float hitBoxHeight, CharacterOptions characterType, CharacterAnimations animations, float detectionRange, float cautionRange, float attackRange) {
+        super(health, speed, x, y, hitBoxWidth, hitBoxHeight, characterType, animations);
+
+        //To avoid having to take the square root when comparing distance.
+        this.detectionRange = detectionRange*detectionRange;
+        this.cautionRange = cautionRange;
+        this.attackRange = attackRange;
     }
 
     @Override
@@ -26,12 +32,21 @@ public class Enemy extends Character {
     public void updateMove(float dt) {
         Vector2 playerPos = EnemyManager.getPlayerPos();
         Vector2 curPos = new Vector2(getPosX(), getPosY());
-        if(curPos.dst2(playerPos) <= detectionRange) {
-            Vector2 dif = new Vector2();
-            dif.set(playerPos).sub(curPos);
-            dif = dif.nor();
-
-            move(dif.x*getSpeed()*dt, dif.y*getSpeed()*dt);
+        float distance = curPos.dst2(playerPos);
+        if(distance <= attackRange) {
+            attack(1);
         }
+        else if(distance <= cautionRange) { //Move Half Speed
+            Vector2 dir = getDir(playerPos, curPos);
+            move(dir.x*getSpeed()*dt/2, dir.y*getSpeed()*dt/2);
+        }
+        else if(distance <= detectionRange) {
+            Vector2 dir = getDir(playerPos, curPos);
+            move(dir.x*getSpeed()*dt, dir.y*getSpeed()*dt);
+        }
+    }
+
+    private Vector2 getDir(Vector2 playerPos, Vector2 curPos) {
+        return playerPos.sub(curPos).nor();
     }
 }
