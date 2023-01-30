@@ -1,8 +1,7 @@
 package com.thejourneyofone.game.characters;
 
 import com.badlogic.gdx.math.Vector2;
-import com.thejourneyofone.game.EnemyManager;
-import com.thejourneyofone.game.Resources;
+import com.thejourneyofone.game.GameManager;
 import com.thejourneyofone.game.Resources.CharacterOptions;
 import com.thejourneyofone.game.Resources.CharacterAnimations;
 
@@ -30,7 +29,7 @@ public class Enemy extends Character {
 
     @Override
     public void updateMove(float dt) {
-        Vector2 playerPos = EnemyManager.getPlayerPos();
+        Vector2 playerPos = GameManager.getPlayerPos();
         Vector2 curPos = new Vector2(getPosX(), getPosY());
         float distance = curPos.dst2(playerPos);
         if(distance <= attackRange) {

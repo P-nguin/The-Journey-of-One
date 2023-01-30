@@ -2,6 +2,8 @@ package com.thejourneyofone.game.characters;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.math.Rectangle;
+import com.thejourneyofone.game.GameManager;
 import com.thejourneyofone.game.Resources;
 import com.thejourneyofone.game.Resources.CharacterOptions;
 import com.thejourneyofone.game.Resources.CharacterAnimations;
@@ -16,6 +18,11 @@ public class Player extends Character {
     private static final float HITBOXHEIGHT = 2.f;
     private static final float HITBOXHEIGHTOFFSET = -1.6f;
     private static final float HITBOXWIDTHOFFSET = 0.1f;
+    private static final float ATTACKHITBOX1WIDTH = 0.1f;
+    private static final float ATTACKHITBOX1HEIGHT = 0.05f;
+    private static final float ATTACKHITBOX1HEIGHTOFFSET = -0.8f;
+    private static final float ATTACKHITBOX1WIDTHOFFSET = 0.3f;
+
 
     private boolean prevLeftMove, prevRightMove, prevUpMove, prevDownMove;
 
@@ -39,6 +46,10 @@ public class Player extends Character {
             setAnimation(CharacterAnimations.Idle);
             setTimeCnt(0);
         } else if (getCurAnimation() == CharacterAnimations.Attack1) {
+            int curFrame = ani.getKeyFrameIndex(getTimeCnt());
+            if(curFrame == 1 || curFrame == 4) {
+                GameManager.addAttack(new Rectangle(getPosX(), getPosY(), HITBOXWIDTH, HITBOXHEIGHT));
+            }
             checkKeys();
         }
 

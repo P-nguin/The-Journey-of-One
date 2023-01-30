@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
+import com.thejourneyofone.game.GameManager;
 import com.thejourneyofone.game.Resources;
 import com.thejourneyofone.game.Resources.CharacterOptions;
 import com.thejourneyofone.game.Resources.CharacterAnimations;
@@ -36,7 +37,7 @@ public class Character {
         this.curAnimation = animation;
         timeCnt = 0;
 
-        hitBox = new Rectangle(sprite.getX(), sprite.getY(), hitBoxWidth, hitBoxWidth);
+        hitBox = new Rectangle(sprite.getX(), sprite.getY(), hitBoxWidth, hitBoxHeight);
     }
 
     public Character(float health, float speed, float x, float y, float hitBoxWidth, float hitBoxHeight, CharacterOptions characterType, CharacterAnimations animation, int curDirection) {
