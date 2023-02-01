@@ -45,6 +45,7 @@ public class GameScreen implements Screen{
         enemy.move(3,0);
 
         GameManager.init(player);
+        GameManager.addEnemy(enemy);
 
         texture = new Texture("libgdx.png");
 
@@ -64,8 +65,8 @@ public class GameScreen implements Screen{
         player.update(delta);
         gameCamera.position.set(player.getPosX(), player.getPosY(), 0);
         gameCamera.update();
-        GameManager.updateAttack(delta);
-        enemy.update(delta);
+        //GameManager.updateAttack(delta); //ensure that player attack is considered first
+        GameManager.updateEnemies(delta);
         GameManager.updateAttack(delta);
 
         game.batch.setProjectionMatrix(gameCamera.combined);
@@ -73,7 +74,7 @@ public class GameScreen implements Screen{
         game.batch.draw(texture, 0, 0);
 
         player.draw(game.batch);
-        enemy.draw(game.batch);
+        GameManager.drawEnemies(game.batch);
         game.batch.end();
 
         testing.setProjectionMatrix(gameCamera.combined);

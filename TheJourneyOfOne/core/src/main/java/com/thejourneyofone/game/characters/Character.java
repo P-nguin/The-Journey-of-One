@@ -29,7 +29,7 @@ public class Character {
     private float damage;
 
     public Character(float health, float speed, float damage, float spriteSizeWidth, float spriteSizeHeight, float hitBoxWidth, float hitBoxHeight, CharacterOptions characterType, CharacterAnimations animation) {
-        this.health = health; this.speed = speed;
+        this.health = health; this.speed = speed; this.damage = damage;
 
         this.sprite = new Sprite();
         sprite.setSize(spriteSizeWidth,spriteSizeHeight);
@@ -40,6 +40,8 @@ public class Character {
         timeCnt = 0;
 
         hitBox = new Rectangle(sprite.getX(), sprite.getY(), hitBoxWidth, hitBoxHeight);
+
+        setTextureRegion(Resources.getAnimation(characterType, curAnimation, curDirection).getKeyFrame(timeCnt));
     }
 
     public void update(float dt) {
@@ -128,6 +130,14 @@ public class Character {
             curAnimation = newAnimation;
             timeCnt = 0;
         }
+    }
+
+    public void setTextureRegion(TextureRegion region) {
+        sprite.setRegion(region);
+    }
+
+    public float getHealth() {
+        return health;
     }
 
     public float getPosX() {

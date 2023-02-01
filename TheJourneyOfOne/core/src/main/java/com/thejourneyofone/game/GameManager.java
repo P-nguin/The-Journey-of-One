@@ -1,5 +1,6 @@
 package com.thejourneyofone.game;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.sun.org.apache.xpath.internal.operations.Bool;
@@ -32,9 +33,13 @@ public class GameManager {
         while(!attacks.isEmpty()) {
             Rectangle cur = attacks.poll();
             if(isPlayerAttack.poll()) {
-                for(Enemy enemy : enemies) {
-                    if(enemy.getHitBox().overlaps(cur)) {
-                        enemy.takeDamage(player.getDamage());
+                for(int i = 0 ; i < enemies.size(); i++) {
+                    if(enemies.get(i).getHitBox().overlaps(cur)) {
+                        System.out.println(enemies.get(i).getHealth()-1);
+                        if(enemies.get(i).takeDamage(player.getDamage())) {
+                            enemies.get(i).dispose();
+                            enemies.remove(i); i--;
+                        }
                     }
                 }
             }
@@ -44,11 +49,23 @@ public class GameManager {
         }
     }
 
+    public static void updateEnemies(float dt) {
+        for(Enemy e : enemies) {
+            e.update(dt);
+        }
+    }
+
+    public static void drawEnemies(SpriteBatch batch) {
+        for(Enemy e : enemies) {
+            e.draw(batch);
+        }
+    }
+
     public static Queue<Rectangle> testing() {
         return attacks;
     }
 
-    public void addEnemy(Enemy enemy) {
+    public static void addEnemy(Enemy enemy) {
         enemies.add(enemy);
     }
 

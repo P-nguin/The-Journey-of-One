@@ -23,7 +23,7 @@ public class Player extends Character {
     private static final float ATTACKHITBOX1HEIGHTOFFSET = -1.4f; //FUTURE MAKE THE SECOND SWIPE SMALLER BUT HEY WHO REALLY CARES?
     private static final float ATTACKHITBOX1WIDTHOFFSET = 1.5f;
 
-    private static final float damage = 1.f;
+    private static final float DAMAGE = 1.f;
 
 
     private boolean prevLeftMove, prevRightMove, prevUpMove, prevDownMove;
@@ -33,7 +33,7 @@ public class Player extends Character {
 
     public Player(float health, float speed) {
         //Facing right, could replace 0 with a static variable that would be housed in the Resources.
-        super(health, speed, damage, SIZEX / GameScreen.PPM*2.5f, SIZEY / GameScreen.PPM*2.5f, HITBOXWIDTH, HITBOXHEIGHT, CharacterOptions.SwordOfStorms, CharacterAnimations.IdleKneel);
+        super(health, speed, DAMAGE, SIZEX / GameScreen.PPM*2.5f, SIZEY / GameScreen.PPM*2.5f, HITBOXWIDTH, HITBOXHEIGHT, CharacterOptions.SwordOfStorms, CharacterAnimations.IdleKneel);
     }
 
     @Override

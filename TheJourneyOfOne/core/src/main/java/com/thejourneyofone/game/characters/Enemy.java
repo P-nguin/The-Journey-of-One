@@ -1,7 +1,10 @@
 package com.thejourneyofone.game.characters;
 
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector2;
 import com.thejourneyofone.game.GameManager;
+import com.thejourneyofone.game.Resources;
 import com.thejourneyofone.game.Resources.CharacterOptions;
 import com.thejourneyofone.game.Resources.CharacterAnimations;
 
@@ -22,9 +25,22 @@ public class Enemy extends Character {
 
     @Override
     public void update(float dt) {
-        super.update(dt);
+        setTimeCnt(getTimeCnt()+dt);
 
         updateMove(dt);
+        updateHitBox();
+        updateAnimation(dt);
+    }
+
+    @Override
+    public void updateAnimation(float dt) {
+        Animation<TextureRegion> ani = Resources.getAnimation(getCharacterType(), getCurAnimation(), getCurDirection());
+        if(ani.isAnimationFinished(getTimeCnt()) && ani.getPlayMode() != Animation.PlayMode.LOOP) {
+            setAnimation(CharacterAnimations.Idle);
+            setTimeCnt(0);
+        }
+
+        setTextureRegion(Resources.getAnimation(getCharacterType(), getCurAnimation(), getCurDirection()).getKeyFrame(getTimeCnt()));
     }
 
     @Override
