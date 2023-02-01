@@ -22,8 +22,12 @@ public class Player extends Character {
     private static final float ATTACKHITBOX1HEIGHT = 1.6f;
     private static final float ATTACKHITBOX1HEIGHTOFFSET = -1.4f; //FUTURE MAKE THE SECOND SWIPE SMALLER BUT HEY WHO REALLY CARES?
     private static final float ATTACKHITBOX1WIDTHOFFSET = 1.5f;
+    private static final float ATTACKHITBOX2WIDTH = 7f;
+    private static final float ATTACKHITBOX2HEIGHT = 1.6f;
+    private static final float ATTACKHITBOX2HEIGHTOFFSET = -1.4f; //FUTURE MAKE THE SECOND SWIPE SMALLER BUT HEY WHO REALLY CARES?
+    private static final float ATTACKHITBOX2WIDTHOFFSET = -0.6f;
 
-    private static final float DAMAGE = 1.f;
+    private static final float DAMAGE = 0.2f;
 
 
     private boolean prevLeftMove, prevRightMove, prevUpMove, prevDownMove;
@@ -49,13 +53,21 @@ public class Player extends Character {
     public void updateAnimation(float dt) {
         Animation<TextureRegion> ani = Resources.getAnimation(getCharacterType(), getCurAnimation(), getCurDirection());
         if (ani.isAnimationFinished(getTimeCnt()) && ani.getPlayMode() != Animation.PlayMode.LOOP) {
+            if(getCurAnimation().equals(CharacterAnimations.Attack2)) hasAttacked = -1;
             setAnimation(CharacterAnimations.Idle);
             setTimeCnt(0);
-        } else if (getCurAnimation() == CharacterAnimations.Attack1) {
+        } else if (getCurAnimation().equals(CharacterAnimations.Attack1)) {
             int curFrame = ani.getKeyFrameIndex(getTimeCnt());
             if((curFrame == 1 || curFrame == 4) && hasAttacked != curFrame) {
-                attack();
+                attack1();
                 hasAttacked = curFrame;
+            }
+            checkKeys();
+        } else if(getCurAnimation().equals(CharacterAnimations.Attack2)) {
+            int curFrame = ani.getKeyFrameIndex(getTimeCnt());
+            if(curFrame == 5 && hasAttacked != curFrame) {
+                attack2();
+                hasAttacked = curFrame; //random constant to prevent attacking multiple times while on the current frame
             }
             checkKeys();
         }
@@ -73,7 +85,7 @@ public class Player extends Character {
 
     @Override
     public void updateMove(float dt) {
-        if(getCurAnimation() == CharacterAnimations.Attack1) return;
+        if(getCurAnimation().equals(CharacterAnimations.Attack1) || getCurAnimation().equals(CharacterAnimations.Attack2)) return;
         super.updateMove(dt);
     }
 
@@ -84,11 +96,30 @@ public class Player extends Character {
         setLeftMove(prevLeftMove);
     }
 
-    private void attack() {
+    private void attack1() {
         if(getCurDirection() == 1) {
-            GameManager.addAttack(new Rectangle(getPosX() - ATTACKHITBOX1WIDTH/2 - ATTACKHITBOX1WIDTHOFFSET, getPosY() + ATTACKHITBOX1HEIGHTOFFSET, ATTACKHITBOX1WIDTH, ATTACKHITBOX1HEIGHT), true);
+            GameManager.addAttack(new Rectangle(getPosX() - ATTACKHITBOX1WIDTH/2 - ATTACKHITBOX1WIDTHOFFSET, getPosY() + ATTACKHITBOX1HEIGHTOFFSET, ATTACKHITBOX1WIDTH, ATTACKHITBOX1HEIGHT),
+                    DAMAGE, true);
         }
-        else GameManager.addAttack(new Rectangle(getPosX() - ATTACKHITBOX1WIDTH/2 + ATTACKHITBOX1WIDTHOFFSET, getPosY() + ATTACKHITBOX1HEIGHTOFFSET, ATTACKHITBOX1WIDTH, ATTACKHITBOX1HEIGHT), true);
+        else {
+            GameManager.addAttack(new Rectangle(getPosX() - ATTACKHITBOX1WIDTH/2 + ATTACKHITBOX1WIDTHOFFSET, getPosY() + ATTACKHITBOX1HEIGHTOFFSET, ATTACKHITBOX1WIDTH, ATTACKHITBOX1HEIGHT),
+                    DAMAGE, true);
+        }
+    }
+
+    private void attack2() {
+        Rectangle attack;
+        if(getCurDirection() == 1) {
+            attack = new Rectangle(getPosX() - ATTACKHITBOX2WIDTHOFFSET/2, getPosY() + ATTACKHITBOX2HEIGHTOFFSET, ATTACKHITBOX2WIDTH, ATTACKHITBOX2HEIGHT);
+            GameManager.addAttack(new Rectangle(getPosX() - ATTACKHITBOX2WIDTH/2 - ATTACKHITBOX2WIDTHOFFSET, getPosY() + ATTACKHITBOX2HEIGHTOFFSET, ATTACKHITBOX2WIDTH, ATTACKHITBOX2HEIGHT),
+                    DAMAGE, true);
+        }
+        else {
+            attack = new Rectangle(getPosX() - ATTACKHITBOX2WIDTHOFFSET/2, getPosY() + ATTACKHITBOX2HEIGHTOFFSET, ATTACKHITBOX2WIDTH, ATTACKHITBOX2HEIGHT);
+            GameManager.addAttack(new Rectangle(getPosX() - ATTACKHITBOX2WIDTHOFFSET/2, getPosY() + ATTACKHITBOX2HEIGHTOFFSET, ATTACKHITBOX2WIDTH, ATTACKHITBOX2HEIGHT),
+                    DAMAGE, true);
+        }
+        GameScreen.testing.rect(attack.getX(), attack.getY(), attack.getWidth(), attack.getHeight());
     }
 
     @Override
