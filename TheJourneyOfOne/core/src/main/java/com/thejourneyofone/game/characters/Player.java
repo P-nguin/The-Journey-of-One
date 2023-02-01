@@ -28,12 +28,16 @@ public class Player extends Character {
 
     private boolean prevLeftMove, prevRightMove, prevUpMove, prevDownMove;
 
+    private int hasAttacked;
+
     private final float idleBattleMax = 5.0f;
     private float idleBattleTime = 0;
 
     public Player(float health, float speed) {
         //Facing right, could replace 0 with a static variable that would be housed in the Resources.
         super(health, speed, DAMAGE, SIZEX / GameScreen.PPM*2.5f, SIZEY / GameScreen.PPM*2.5f, HITBOXWIDTH, HITBOXHEIGHT, CharacterOptions.SwordOfStorms, CharacterAnimations.IdleKneel);
+
+        hasAttacked = -1;
     }
 
     @Override
@@ -49,8 +53,9 @@ public class Player extends Character {
             setTimeCnt(0);
         } else if (getCurAnimation() == CharacterAnimations.Attack1) {
             int curFrame = ani.getKeyFrameIndex(getTimeCnt());
-            if(curFrame == 1 || curFrame == 4) {
+            if((curFrame == 1 || curFrame == 4) && hasAttacked != curFrame) {
                 attack();
+                hasAttacked = curFrame;
             }
             checkKeys();
         }

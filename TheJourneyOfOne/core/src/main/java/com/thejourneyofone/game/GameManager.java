@@ -15,11 +15,11 @@ import java.util.Queue;
 public class GameManager {
     private static Queue<Rectangle> attacks;
     private static Queue<Boolean> isPlayerAttack;
-    private static ArrayList<Enemy> enemies;
+    private static ArrayList<Enemy> enemies, enemiesDead;
     private static Player player;
 
     public static void init(Player _player) {
-        enemies = new ArrayList<>();
+        enemies = new ArrayList<>(); enemiesDead = new ArrayList<>();
         attacks = new LinkedList<>();
         isPlayerAttack = new LinkedList<>();
         player = _player;
@@ -27,6 +27,7 @@ public class GameManager {
 
     public static void update(float dt) {
         updateAttack(dt);
+        updateEnemies(dt);
     }
 
     public static void updateAttack(float dt) {
@@ -37,14 +38,19 @@ public class GameManager {
                     if(enemies.get(i).getHitBox().overlaps(cur)) {
                         System.out.println(enemies.get(i).getHealth()-1);
                         if(enemies.get(i).takeDamage(player.getDamage())) {
-                            enemies.get(i).dispose();
+                            enemiesDead.add(enemies.get(i));
                             enemies.remove(i); i--;
                         }
                     }
                 }
             }
             else {
-
+                if(player.getHitBox().overlaps(cur)) {
+                    if(player.takeDamage(player.getDamage())) {
+                        System.out.println("Player not deleted because it will break things");
+                    }
+                    System.out.println("Player Damaged " + player.getHealth());
+                }
             }
         }
     }
@@ -53,10 +59,21 @@ public class GameManager {
         for(Enemy e : enemies) {
             e.update(dt);
         }
+        for(int i = 0; i < enemiesDead.size(); i++) {
+            Enemy e = enemiesDead.get(i);
+            e.update(dt);
+            if(!e.getCurAnimation().equals(Resources.CharacterAnimations.Death)) {
+                e.dispose();
+                enemiesDead.remove(i); i--;
+            }
+        }
     }
 
     public static void drawEnemies(SpriteBatch batch) {
         for(Enemy e : enemies) {
+            e.draw(batch);
+        }
+        for(Enemy e : enemiesDead) {
             e.draw(batch);
         }
     }

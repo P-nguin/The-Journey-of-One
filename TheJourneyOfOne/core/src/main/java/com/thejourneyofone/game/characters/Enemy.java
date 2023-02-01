@@ -33,18 +33,11 @@ public class Enemy extends Character {
     }
 
     @Override
-    public void updateAnimation(float dt) {
-        Animation<TextureRegion> ani = Resources.getAnimation(getCharacterType(), getCurAnimation(), getCurDirection());
-        if(ani.isAnimationFinished(getTimeCnt()) && ani.getPlayMode() != Animation.PlayMode.LOOP) {
-            setAnimation(CharacterAnimations.Idle);
-            setTimeCnt(0);
-        }
-
-        setTextureRegion(Resources.getAnimation(getCharacterType(), getCurAnimation(), getCurDirection()).getKeyFrame(getTimeCnt()));
-    }
-
-    @Override
     public void updateMove(float dt) {
+
+        //preconditions, not attacking, not damaged, not dead
+        if(getCurAnimation().equals(CharacterAnimations.Damaged) || getCurAnimation().equals(CharacterAnimations.Death) || getCurAnimation().equals(CharacterAnimations.Attack1)) return;
+
         Vector2 playerPos = GameManager.getPlayerPos();
         Vector2 curPos = new Vector2(getPosX(), getPosY());
         float distance = curPos.dst2(playerPos);

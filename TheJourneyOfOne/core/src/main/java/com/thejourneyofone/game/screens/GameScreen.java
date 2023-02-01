@@ -24,8 +24,6 @@ public class GameScreen implements Screen{
 
     private Player player;
 
-    private StormOfSwordsEnemy enemy;
-
     Texture texture;
 
     public ShapeRenderer testing;
@@ -41,11 +39,8 @@ public class GameScreen implements Screen{
         player = new Player(5,12);
         inputHandler = new InputHandler(player);
 
-        enemy = new StormOfSwordsEnemy(5,3);
-        enemy.move(3,0);
-
         GameManager.init(player);
-        GameManager.addEnemy(enemy);
+        GameManager.addEnemy(new StormOfSwordsEnemy(5,3));
 
         texture = new Texture("libgdx.png");
 
@@ -65,9 +60,7 @@ public class GameScreen implements Screen{
         player.update(delta);
         gameCamera.position.set(player.getPosX(), player.getPosY(), 0);
         gameCamera.update();
-        //GameManager.updateAttack(delta); //ensure that player attack is considered first
-        GameManager.updateEnemies(delta);
-        GameManager.updateAttack(delta);
+        GameManager.update(delta);
 
         game.batch.setProjectionMatrix(gameCamera.combined);
         game.batch.begin();
@@ -83,7 +76,7 @@ public class GameScreen implements Screen{
         testing.rect(player.hitBox.x, player.hitBox.y, player.hitBox.getWidth(), player.hitBox.getHeight());
 
         testing.setColor(Color.BLUE);
-        testing.rect(enemy.hitBox.x, enemy.hitBox.y, enemy.hitBox.getWidth(), enemy.hitBox.getHeight());
+        //testing.rect(enemy.hitBox.x, enemy.hitBox.y, enemy.hitBox.getWidth(), enemy.hitBox.getHeight());
 
         /*for(int i = 0; i < GameManager.testing().size(); i++) {
             testing.rect(GameManager.testing().get(i).x, GameManager.testing().get(i).y, GameManager.testing().get(i).getWidth(), GameManager.testing().get(i).height);

@@ -113,6 +113,10 @@ public class Character {
 
     }
 
+    public boolean isAnimationOver() {
+        return Resources.getAnimation(characterType, curAnimation, curDirection).isAnimationFinished(timeCnt);
+    }
+
     public void setTexture(TextureRegion texture) {
         sprite.setRegion(texture);
     }
