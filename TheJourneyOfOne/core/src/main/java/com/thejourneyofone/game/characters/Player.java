@@ -18,10 +18,12 @@ public class Player extends Character {
     private static final float HITBOXHEIGHT = 2.f;
     private static final float HITBOXHEIGHTOFFSET = -1.6f;
     private static final float HITBOXWIDTHOFFSET = 0.1f;
-    private static final float ATTACKHITBOX1WIDTH = 0.1f;
-    private static final float ATTACKHITBOX1HEIGHT = 0.05f;
-    private static final float ATTACKHITBOX1HEIGHTOFFSET = -0.8f;
-    private static final float ATTACKHITBOX1WIDTHOFFSET = 0.3f;
+    private static final float ATTACKHITBOX1WIDTH = 3.9f;
+    private static final float ATTACKHITBOX1HEIGHT = 1.6f;
+    private static final float ATTACKHITBOX1HEIGHTOFFSET = -1.4f; //FUTURE MAKE THE SECOND SWIPE SMALLER BUT HEY WHO REALLY CARES?
+    private static final float ATTACKHITBOX1WIDTHOFFSET = 1.5f;
+
+    private static final float damage = 1.f;
 
 
     private boolean prevLeftMove, prevRightMove, prevUpMove, prevDownMove;
@@ -31,7 +33,7 @@ public class Player extends Character {
 
     public Player(float health, float speed) {
         //Facing right, could replace 0 with a static variable that would be housed in the Resources.
-        super(health, speed, SIZEX / GameScreen.PPM*2.5f, SIZEY / GameScreen.PPM*2.5f, HITBOXWIDTH, HITBOXHEIGHT, CharacterOptions.SwordOfStorms, CharacterAnimations.IdleKneel, 0);
+        super(health, speed, damage, SIZEX / GameScreen.PPM*2.5f, SIZEY / GameScreen.PPM*2.5f, HITBOXWIDTH, HITBOXHEIGHT, CharacterOptions.SwordOfStorms, CharacterAnimations.IdleKneel);
     }
 
     @Override
@@ -48,7 +50,7 @@ public class Player extends Character {
         } else if (getCurAnimation() == CharacterAnimations.Attack1) {
             int curFrame = ani.getKeyFrameIndex(getTimeCnt());
             if(curFrame == 1 || curFrame == 4) {
-                GameManager.addAttack(new Rectangle(getPosX(), getPosY(), HITBOXWIDTH, HITBOXHEIGHT));
+                attack();
             }
             checkKeys();
         }
@@ -75,6 +77,13 @@ public class Player extends Character {
         setRightMove(prevRightMove);
         setUpMove(prevUpMove);
         setLeftMove(prevLeftMove);
+    }
+
+    private void attack() {
+        if(getCurDirection() == 1) {
+            GameManager.addAttack(new Rectangle(getPosX() - ATTACKHITBOX1WIDTH/2 - ATTACKHITBOX1WIDTHOFFSET, getPosY() + ATTACKHITBOX1HEIGHTOFFSET, ATTACKHITBOX1WIDTH, ATTACKHITBOX1HEIGHT), true);
+        }
+        else GameManager.addAttack(new Rectangle(getPosX() - ATTACKHITBOX1WIDTH/2 + ATTACKHITBOX1WIDTHOFFSET, getPosY() + ATTACKHITBOX1HEIGHTOFFSET, ATTACKHITBOX1WIDTH, ATTACKHITBOX1HEIGHT), true);
     }
 
     @Override

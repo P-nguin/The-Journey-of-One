@@ -1,5 +1,6 @@
 package com.thejourneyofone.game.screens;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
@@ -63,8 +64,9 @@ public class GameScreen implements Screen{
         player.update(delta);
         gameCamera.position.set(player.getPosX(), player.getPosY(), 0);
         gameCamera.update();
-
+        GameManager.updateAttack(delta);
         enemy.update(delta);
+        GameManager.updateAttack(delta);
 
         game.batch.setProjectionMatrix(gameCamera.combined);
         game.batch.begin();
@@ -81,6 +83,11 @@ public class GameScreen implements Screen{
 
         testing.setColor(Color.BLUE);
         testing.rect(enemy.hitBox.x, enemy.hitBox.y, enemy.hitBox.getWidth(), enemy.hitBox.getHeight());
+
+        /*for(int i = 0; i < GameManager.testing().size(); i++) {
+            testing.rect(GameManager.testing().get(i).x, GameManager.testing().get(i).y, GameManager.testing().get(i).getWidth(), GameManager.testing().get(i).height);
+            GameManager.testing().remove(i); i--;
+        } */
         testing.end();
     }
 

@@ -26,7 +26,9 @@ public class Character {
     private boolean downMove;
     private int curDirection; //0 is right, 1 is left
 
-    public Character(float health, float speed, float spriteSizeWidth, float spriteSizeHeight, float hitBoxWidth, float hitBoxHeight, CharacterOptions characterType, CharacterAnimations animation) {
+    private float damage;
+
+    public Character(float health, float speed, float damage, float spriteSizeWidth, float spriteSizeHeight, float hitBoxWidth, float hitBoxHeight, CharacterOptions characterType, CharacterAnimations animation) {
         this.health = health; this.speed = speed;
 
         this.sprite = new Sprite();
@@ -38,20 +40,6 @@ public class Character {
         timeCnt = 0;
 
         hitBox = new Rectangle(sprite.getX(), sprite.getY(), hitBoxWidth, hitBoxHeight);
-    }
-
-    public Character(float health, float speed, float x, float y, float hitBoxWidth, float hitBoxHeight, CharacterOptions characterType, CharacterAnimations animation, int curDirection) {
-        this.health = health; this.speed = speed;
-
-        this.sprite = new Sprite();
-        sprite.setSize(x,y);
-
-        this.characterType = characterType;
-        this.curDirection = curDirection;
-        this.curAnimation = animation;
-        timeCnt = 0;
-
-        hitBox = new Rectangle(x, y, hitBoxWidth, hitBoxHeight);
     }
 
     public void update(float dt) {
@@ -108,6 +96,17 @@ public class Character {
         else if(type == 2) setAnimation(CharacterAnimations.Attack2);
     }
 
+    //true if dead
+    public boolean takeDamage(float damage) {
+        health -= damage;
+        if(health <= 0) {
+            setAnimation(CharacterAnimations.Death);
+            return true;
+        }
+        setAnimation(CharacterAnimations.Damaged);
+        return false;
+    }
+
     public void dispose() {
 
     }
@@ -157,6 +156,14 @@ public class Character {
 
     public float getSpeed() {
         return speed;
+    }
+
+    public Rectangle getHitBox() {
+        return hitBox;
+    }
+
+    public float getDamage() {
+        return damage;
     }
 
     public void setRightMove(boolean t) {

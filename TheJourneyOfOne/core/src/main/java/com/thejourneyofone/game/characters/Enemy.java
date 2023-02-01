@@ -11,8 +11,8 @@ public class Enemy extends Character {
     private float cautionRange;
     private float attackRange;
 
-    public Enemy(float health, float speed, float x, float y, float hitBoxWidth, float hitBoxHeight, CharacterOptions characterType, CharacterAnimations animations, float detectionRange, float cautionRange, float attackRange) {
-        super(health, speed, x, y, hitBoxWidth, hitBoxHeight, characterType, animations);
+    public Enemy(float health, float speed, float damage, float x, float y, float hitBoxWidth, float hitBoxHeight, CharacterOptions characterType, CharacterAnimations animations, float detectionRange, float cautionRange, float attackRange) {
+        super(health, speed, damage, x, y, hitBoxWidth, hitBoxHeight, characterType, animations);
 
         //To avoid having to take the square root when comparing distance.
         this.detectionRange = detectionRange*detectionRange;
