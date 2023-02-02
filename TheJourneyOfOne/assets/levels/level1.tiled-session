@@ -1,9 +1,21 @@
 {
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
     "activeFile": "level1.tiled-project.tmx",
     "expandedProjectPaths": [
     ],
     "fileStates": {
+        "TX Tileset Grass.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
         "TX Tileset Wall.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "border2.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
@@ -11,7 +23,19 @@
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
+        "broken.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "cornerLeftBottom.tsx": {
+            "scaleInDock": 4,
+            "scaleInEditor": 32
+        },
         "cornerLeftTop.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "cornerRightBottom.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
@@ -27,6 +51,14 @@
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
+        "height.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "heightAndEnd.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
         "level1.tiled-project.tmx": {
             "scale": 2.68375,
             "selectedLayer": 0,
@@ -35,8 +67,28 @@
                 "y": 159.85095482068004
             }
         },
+        "longwall.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "map1.tmx": {
+            "scale": 0.33,
+            "selectedLayer": 5,
+            "viewCenter": {
+                "x": 2060.6060606060605,
+                "y": 1266.6666666666667
+            }
+        },
+        "shortwall.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
         "stair.tsx": {
             "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "stairsWide.tsx": {
+            "scaleInDock": 0.75,
             "scaleInEditor": 1
         },
         "tiles.tsx": {
@@ -52,6 +104,23 @@
             "scaleInEditor": 1
         },
         "up.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "upLeft.tsx": {
+            "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
+        "upRight.tsx": {
+            "scaleInDock": 0.33,
+            "scaleInEditor": 1
+        },
+        "upwalls.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "vault.tsx": {
+            "scaleInDock": 1,
             "scaleInEditor": 1
         },
         "wall.tsx": {
@@ -61,32 +130,40 @@
         "walls.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 1
+        },
+        "window1.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         }
     },
     "last.imagePath": "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels",
+    "map.height": 250,
     "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 8,
+    "map.tileWidth": 8,
+    "map.width": 350,
     "openFiles": [
         "level1.tiled-project.tmx",
         "tiles.tsx"
     ],
     "project": "",
     "recentFiles": [
-        "ending.tsx",
-        "unbrokenhorz.tsx",
-        "up.tsx",
-        "unbroken.tsx",
-        "stair.tsx",
+        "upLeft.tsx",
+        "upRight.tsx",
+        "cornerLeftBottom.tsx",
+        "broken.tsx",
+        "TX Tileset Grass.tsx",
+        "map1.tmx",
+        "border2.tsx",
         "cornerLeftTop.tsx",
         "cornerRightTop.tsx",
-        "borders.tsx",
-        "grass.tsx",
-        "TX Tileset Wall.tsx",
-        "walls.tsx",
-        "wall.tsx"
+        "cornerRightBottom.tsx",
+        "stair.tsx",
+        "stairsWide.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
-        "height": 116,
-        "width": 96
+        "height": 8,
+        "width": 8
     }
 }

@@ -20,12 +20,16 @@ public class MenuScreen implements Screen {
     Texture exitButtonActive;
     Texture exitButtonInactive;
 
+    Texture background;
+
     public MenuScreen(Main game){
         this.game = game;
         playButtonActive = new Texture("textures/UI/play_button_active.png");
         playButtonInactive = new Texture("textures/UI/play_button_inactive.png");
         exitButtonActive = new Texture("textures/UI/exit_button_active.png");
         exitButtonInactive = new Texture("textures/UI/exit_button_inactive.png");
+
+        //background = new Texture("textures/UI/background.jpg");
 
     }
     @Override
@@ -38,6 +42,7 @@ public class MenuScreen implements Screen {
         Gdx.gl.glClearColor(0.15f, 0.15f, 0.2f, 1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         game.batch.begin();
+        //game.batch.draw(background,0,0);
 
         int x = Main.WIDTH / 2 - EXIT_BUTTON_WIDTH/2;
         if(Gdx.input.getX() < x + EXIT_BUTTON_WIDTH && Gdx.input.getX() > x &&  Main.HEIGHT - Gdx.input.getY()< EXIT_BUTTON_Y  + EXIT_BUTTON_HEIGHT && Main.HEIGHT - Gdx.input.getY() > EXIT_BUTTON_Y){
