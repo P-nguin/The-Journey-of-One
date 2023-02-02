@@ -22,10 +22,13 @@ public class Resources {
         atlas = new TextureAtlas(Gdx.files.internal("packed/game.atlas"));
         animationMap = new HashMap<>();
         textureMap = new HashMap<>();
-                                    //idle,     kneel,  run,    attack1,    attack2,    damage,     death
-        float[][] animationTimes = {{.2f,       .1f,    .1f,    .1f,        0.09f,       .1f,        .11f},  // storms of swords
-                                    {.2f,       .1f,    .1f,    .1f,        .12f,       .1f,        .1f},   // something
-                                    {.2f,       .1f,    .1f,    .1f,        .12f,       .1f,        .1f}};  // something
+                                    //idle,     kneel,  run,    attack1,    attack2,    block       damage,     death
+        float[][] animationTimes = {{.2f,       .1f,    .1f,    .1f,        0.095f,     .1f,        .1f,        .11f},  // storms of swords
+                                    {.2f,       .1f,    .1f,    .1f,        .12f,       .1f,        .1f,        .1f},   // something
+                                    {.2f,       .1f,    .1f,    .1f,        .12f,       .1f,        .1f,        .1f}};  // something
+
+                                   //idle,  kneel,  run,    attack1,    attack2,    block       damage,     death
+        boolean[] animationLoop = {true,    true,   true,   false,      false,      true,       false,      false};
 
                                     //storm of swords
         int[][] animationCharactersSize = {{Player.SIZEX, Player.SIZEY},{}}; int cnt1 = 0;
@@ -37,9 +40,9 @@ public class Resources {
             String parentFolder = i.name(); int cnt2 = 0;
             for(CharacterAnimations j : CharacterAnimations.values()) {
                 System.out.println(parentFolder+"/"+i.name()+j.name()+"Left");
-                Animation uno = createAnimation(animationTimes[cnt1][cnt2], atlas.findRegion(parentFolder+"/"+i.name()+j.name()+"Left").split(animationCharactersSize[cnt1][0], animationCharactersSize[cnt1][1]), false);
+                Animation uno = createAnimation(animationTimes[cnt1][cnt2], atlas.findRegion(parentFolder+"/"+i.name()+j.name()+"Left").split(animationCharactersSize[cnt1][0], animationCharactersSize[cnt1][1]), animationLoop[cnt2]);
                 System.out.println(parentFolder+"/"+i.name()+j.name()+"Right");
-                Animation dos = createAnimation(animationTimes[cnt1][cnt2], atlas.findRegion(parentFolder+"/"+i.name()+j.name()+"Right").split(animationCharactersSize[cnt1][0], animationCharactersSize[cnt1][1]), false);
+                Animation dos = createAnimation(animationTimes[cnt1][cnt2], atlas.findRegion(parentFolder+"/"+i.name()+j.name()+"Right").split(animationCharactersSize[cnt1][0], animationCharactersSize[cnt1][1]), animationLoop[cnt2]);
                 animationMap.get(i).put(j, new Animation[] {dos, uno});
                 cnt2++;
             }
@@ -89,6 +92,7 @@ public class Resources {
         Run,
         Attack1,
         Attack2,
+        Block,
         Damaged,
         Death
     }
