@@ -31,6 +31,9 @@ public class InputHandler implements InputProcessor {
         if(keycode == Keys.F) {
             player.attack(2);
         }
+        if(keycode == Keys.SPACE) {
+            player.block();
+        }
         return false;
     }
 

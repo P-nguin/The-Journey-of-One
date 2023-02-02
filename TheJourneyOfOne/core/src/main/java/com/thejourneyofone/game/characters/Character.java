@@ -98,6 +98,10 @@ public class Character {
         else if(type == 2) setAnimation(CharacterAnimations.Attack2);
     }
 
+    public void block() {
+
+    }
+
     //true if dead
     public boolean takeDamage(float damage) {
         health -= damage;
@@ -178,6 +182,10 @@ public class Character {
 
     public float getDamage() {
         return damage;
+    }
+
+    public void setPosition(float x, float y) {
+        sprite.setPosition(x, y);
     }
 
     public void setRightMove(boolean t) {

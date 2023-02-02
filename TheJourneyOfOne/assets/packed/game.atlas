@@ -1,5 +1,80 @@
 
 game.png
+size: 724, 930
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+UI/exit_button_active
+  rotate: false
+  xy: 2, 214
+  size: 540, 210
+  orig: 540, 210
+  offset: 0, 0
+  index: -1
+UI/exit_button_inactive
+  rotate: false
+  xy: 2, 2
+  size: 540, 210
+  orig: 540, 210
+  offset: 0, 0
+  index: -1
+UI/play_button_active
+  rotate: false
+  xy: 2, 678
+  size: 720, 250
+  orig: 720, 250
+  offset: 0, 0
+  index: -1
+UI/play_button_inactive
+  rotate: false
+  xy: 2, 426
+  size: 720, 250
+  orig: 720, 250
+  offset: 0, 0
+  index: -1
+
+game2.png
+size: 365, 2608
+format: RGBA8888
+filter: Nearest, Nearest
+repeat: none
+stormhead/StormHeadAttack
+  rotate: false
+  xy: 2, 2
+  size: 119, 2604
+  orig: 119, 2604
+  offset: 0, 0
+  index: -1
+stormhead/StormHeadDamaged
+  rotate: false
+  xy: 244, 1240
+  size: 119, 248
+  orig: 119, 248
+  offset: 0, 0
+  index: -1
+stormhead/StormHeadDeath
+  rotate: false
+  xy: 123, 248
+  size: 119, 1116
+  orig: 119, 1116
+  offset: 0, 0
+  index: -1
+stormhead/StormHeadIdle
+  rotate: false
+  xy: 244, 1490
+  size: 119, 1116
+  orig: 119, 1116
+  offset: 0, 0
+  index: -1
+stormhead/StormHeadRun
+  rotate: false
+  xy: 123, 1366
+  size: 119, 1240
+  orig: 119, 1240
+  offset: 0, 0
+  index: -1
+
+game3.png
 size: 419, 2006
 format: RGBA8888
 filter: Nearest, Nearest
@@ -47,181 +122,120 @@ shadow of storms/TheShadowOfStormsRun
   offset: 0, 0
   index: -1
 
-game2.png
-size: 365, 2608
-format: RGBA8888
-filter: Nearest, Nearest
-repeat: none
-stormhead/StormHeadAttack
-  rotate: false
-  xy: 2, 2
-  size: 119, 2604
-  orig: 119, 2604
-  offset: 0, 0
-  index: -1
-stormhead/StormHeadDamaged
-  rotate: false
-  xy: 244, 1240
-  size: 119, 248
-  orig: 119, 248
-  offset: 0, 0
-  index: -1
-stormhead/StormHeadDeath
-  rotate: false
-  xy: 123, 248
-  size: 119, 1116
-  orig: 119, 1116
-  offset: 0, 0
-  index: -1
-stormhead/StormHeadIdle
-  rotate: false
-  xy: 244, 1490
-  size: 119, 1116
-  orig: 119, 1116
-  offset: 0, 0
-  index: -1
-stormhead/StormHeadRun
-  rotate: false
-  xy: 123, 1366
-  size: 119, 1240
-  orig: 119, 1240
-  offset: 0, 0
-  index: -1
-
-game3.png
-size: 1530, 476
+game4.png
+size: 384, 2035
 format: RGBA8888
 filter: Nearest, Nearest
 repeat: none
 SwordOfStorms/SwordOfStormsAttack1Left
   rotate: false
-  xy: 766, 192
+  xy: 193, 1326
   size: 189, 282
   orig: 189, 282
   offset: 0, 0
   index: -1
 SwordOfStorms/SwordOfStormsAttack1Right
   rotate: false
-  xy: 957, 192
+  xy: 2, 382
   size: 189, 282
   orig: 189, 282
   offset: 0, 0
   index: -1
 SwordOfStorms/SwordOfStormsAttack2Left
   rotate: false
-  xy: 384, 51
+  xy: 193, 1610
   size: 189, 423
   orig: 189, 423
   offset: 0, 0
   index: -1
 SwordOfStorms/SwordOfStormsAttack2Right
   rotate: false
-  xy: 575, 51
+  xy: 2, 666
   size: 189, 423
   orig: 189, 423
   offset: 0, 0
   index: -1
+SwordOfStorms/SwordOfStormsBlockLeft
+  rotate: false
+  xy: 193, 852
+  size: 189, 188
+  orig: 189, 188
+  offset: 0, 0
+  index: -1
+SwordOfStorms/SwordOfStormsBlockRight
+  rotate: false
+  xy: 193, 662
+  size: 189, 188
+  orig: 189, 188
+  offset: 0, 0
+  index: -1
 SwordOfStorms/SwordOfStormsDamagedLeft
   rotate: false
-  xy: 1148, 96
+  xy: 2, 2
   size: 189, 94
   orig: 189, 94
   offset: 0, 0
   index: -1
 SwordOfStorms/SwordOfStormsDamagedRight
   rotate: false
-  xy: 1339, 96
+  xy: 193, 186
   size: 189, 94
   orig: 189, 94
   offset: 0, 0
   index: -1
 SwordOfStorms/SwordOfStormsDeathLeft
   rotate: false
-  xy: 2, 4
+  xy: 2, 1563
   size: 189, 470
   orig: 189, 470
   offset: 0, 0
   index: -1
 SwordOfStorms/SwordOfStormsDeathRight
   rotate: false
-  xy: 193, 4
+  xy: 2, 1091
   size: 189, 470
   orig: 189, 470
   offset: 0, 0
   index: -1
 SwordOfStorms/SwordOfStormsIdleKneelLeft
   rotate: false
-  xy: 1148, 47
+  xy: 193, 137
   size: 189, 47
   orig: 189, 47
   offset: 0, 0
   index: -1
 SwordOfStorms/SwordOfStormsIdleKneelRight
   rotate: false
-  xy: 1339, 47
+  xy: 193, 88
   size: 189, 47
   orig: 189, 47
   offset: 0, 0
   index: -1
 SwordOfStorms/SwordOfStormsIdleLeft
   rotate: false
-  xy: 766, 2
+  xy: 193, 472
   size: 189, 188
   orig: 189, 188
   offset: 0, 0
   index: -1
 SwordOfStorms/SwordOfStormsIdleRight
   rotate: false
-  xy: 957, 2
+  xy: 193, 282
   size: 189, 188
   orig: 189, 188
   offset: 0, 0
   index: -1
 SwordOfStorms/SwordOfStormsRunLeft
   rotate: false
-  xy: 1148, 192
+  xy: 193, 1042
   size: 189, 282
   orig: 189, 282
   offset: 0, 0
   index: -1
 SwordOfStorms/SwordOfStormsRunRight
   rotate: false
-  xy: 1339, 192
+  xy: 2, 98
   size: 189, 282
   orig: 189, 282
-  offset: 0, 0
-  index: -1
-
-game4.png
-size: 724, 930
-format: RGBA8888
-filter: Nearest, Nearest
-repeat: none
-UI/exit_button_active
-  rotate: false
-  xy: 2, 214
-  size: 540, 210
-  orig: 540, 210
-  offset: 0, 0
-  index: -1
-UI/exit_button_inactive
-  rotate: false
-  xy: 2, 2
-  size: 540, 210
-  orig: 540, 210
-  offset: 0, 0
-  index: -1
-UI/play_button_active
-  rotate: false
-  xy: 2, 678
-  size: 720, 250
-  orig: 720, 250
-  offset: 0, 0
-  index: -1
-UI/play_button_inactive
-  rotate: false
-  xy: 2, 426
-  size: 720, 250
-  orig: 720, 250
   offset: 0, 0
   index: -1

@@ -13,6 +13,7 @@ import com.badlogic.gdx.utils.viewport.*;
 import com.thejourneyofone.game.GameManager;
 import com.thejourneyofone.game.Main;
 import com.thejourneyofone.game.TileMapHelper;
+import com.thejourneyofone.game.characters.MainCamera;
 import com.thejourneyofone.game.characters.Player;
 import com.thejourneyofone.game.characters.StormOfSwordsEnemy;
 
@@ -20,13 +21,10 @@ public class GameScreen implements Screen{
     public static final float PPM = 32;
 
     private Main game;
+    private MainCamera mainCamera;
     private InputHandler inputHandler;
-    private OrthographicCamera gameCamera;
-    private ScreenViewport gamePort;
 
     private Player player;
-
-    Texture texture;
 
     public static ShapeRenderer testing;
 
@@ -36,19 +34,13 @@ public class GameScreen implements Screen{
     public GameScreen(Main game) {
         this.game = game;
 
-        gameCamera = new OrthographicCamera();
-        gameCamera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        gamePort = new ScreenViewport(gameCamera);
-        gamePort.setUnitsPerPixel(1/PPM);
-        gamePort.update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        mainCamera = new MainCamera();
 
         player = new Player(5,12);
         inputHandler = new InputHandler(player);
 
         GameManager.init(player);
         GameManager.addEnemy(new StormOfSwordsEnemy(5,3));
-
-        texture = new Texture("libgdx.png");
 
         testing = new ShapeRenderer();
 
@@ -66,19 +58,19 @@ public class GameScreen implements Screen{
         Gdx.gl.glClearColor(0.3f, 0.15f, 0.2f, 1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        testing.setProjectionMatrix(gameCamera.combined);
+        testing.setProjectionMatrix(MainCamera.camera.combined);
         testing.begin(ShapeRenderer.ShapeType.Line);
         testing.setColor(Color.RED);
 
         player.update(delta);
-        gameCamera.position.set(player.getPosX(), player.getPosY(), 0);
-        gameCamera.update();
+        MainCamera.update(delta, player);
         GameManager.update(delta);
 
-        game.batch.setProjectionMatrix(gameCamera.combined);
-        orthogonalTiledMapRenderer.setView(gameCamera);
+        game.batch.setProjectionMatrix(MainCamera.camera.combined);
         game.batch.begin();
-        game.batch.draw(texture, 0, 0);
+
+        orthogonalTiledMapRenderer.setView(MainCamera.camera);
+        orthogonalTiledMapRenderer.render();
 
         player.draw(game.batch);
         GameManager.drawEnemies(game.batch);
@@ -89,20 +81,21 @@ public class GameScreen implements Screen{
         testing.setColor(Color.BLUE);
         //testing.rect(enemy.hitBox.x, enemy.hitBox.y, enemy.hitBox.getWidth(), enemy.hitBox.getHeight());
 
-        testing.rect(player.getPosX() - 1f/2f - 0.1f, player.getPosY() + -1.4f, 6f, 1.6f);
+        //testing.rect(player.getPosX() - 1f/2f - 0.1f, player.getPosY() + -1.4f, 6f, 1.6f);
 
         /*for(int i = 0; i < GameManager.testing().size(); i++) {
             testing.rect(GameManager.testing().get(i).x, GameManager.testing().get(i).y, GameManager.testing().get(i).getWidth(), GameManager.testing().get(i).height);
             GameManager.testing().remove(i); i--;
         } */
-        testing.end();
 
-        orthogonalTiledMapRenderer.render();
+        //testing.rect(gameCamera.position.x - gameCamera.viewportWidth/2, gameCamera.position.y - gameCamera.viewportHeight/2, gameCamera.viewportWidth, gameCamera.viewportHeight);
+
+        testing.end();
     }
 
     @Override
     public void resize(int width, int height) {
-        gamePort.update(width, height);
+        MainCamera.viewport.update(width, height);
     }
 
     @Override
