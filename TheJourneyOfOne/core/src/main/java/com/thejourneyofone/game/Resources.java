@@ -22,10 +22,10 @@ public class Resources {
         atlas = new TextureAtlas(Gdx.files.internal("packed/game.atlas"));
         animationMap = new HashMap<>();
         textureMap = new HashMap<>();
-                                    //idle, kneel, run, attack1, attack2, damage, death
-        float[][] animationTimes = {{.2f, .1f, .1f, .1f, .12f, .1f, .1f},  // storms of swords
-                                    {.2f, .1f, .1f, .1f, .12f, .1f, .1f},  // something
-                                    {.2f, .1f, .1f, .1f, .12f, .1f, .1f}};  // something
+                                    //idle,     kneel,  run,    attack1,    attack2,    damage,     death
+        float[][] animationTimes = {{.2f,       .1f,    .1f,    .1f,        0.09f,       .1f,        .11f},  // storms of swords
+                                    {.2f,       .1f,    .1f,    .1f,        .12f,       .1f,        .1f},   // something
+                                    {.2f,       .1f,    .1f,    .1f,        .12f,       .1f,        .1f}};  // something
 
                                     //storm of swords
         int[][] animationCharactersSize = {{Player.SIZEX, Player.SIZEY},{}}; int cnt1 = 0;

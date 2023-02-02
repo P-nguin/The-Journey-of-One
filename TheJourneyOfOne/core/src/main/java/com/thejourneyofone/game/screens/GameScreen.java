@@ -26,11 +26,9 @@ public class GameScreen implements Screen{
 
     private Player player;
 
-    private StormOfSwordsEnemy enemy;
-
     Texture texture;
 
-    public ShapeRenderer testing;
+    public static ShapeRenderer testing;
 
     private OrthogonalTiledMapRenderer orthogonalTiledMapRenderer;
     private TileMapHelper tileMapHelper;
@@ -47,11 +45,8 @@ public class GameScreen implements Screen{
         player = new Player(5,12);
         inputHandler = new InputHandler(player);
 
-        enemy = new StormOfSwordsEnemy(5,3);
-        enemy.move(3,0);
-
         GameManager.init(player);
-        GameManager.addEnemy(enemy);
+        GameManager.addEnemy(new StormOfSwordsEnemy(5,3));
 
         texture = new Texture("libgdx.png");
 
@@ -71,12 +66,14 @@ public class GameScreen implements Screen{
         Gdx.gl.glClearColor(0.3f, 0.15f, 0.2f, 1f);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
+        testing.setProjectionMatrix(gameCamera.combined);
+        testing.begin(ShapeRenderer.ShapeType.Line);
+        testing.setColor(Color.RED);
+
         player.update(delta);
         gameCamera.position.set(player.getPosX(), player.getPosY(), 0);
         gameCamera.update();
-        //GameManager.updateAttack(delta); //ensure that player attack is considered first
-        GameManager.updateEnemies(delta);
-        GameManager.updateAttack(delta);
+        GameManager.update(delta);
 
         game.batch.setProjectionMatrix(gameCamera.combined);
         orthogonalTiledMapRenderer.setView(gameCamera);
@@ -87,13 +84,12 @@ public class GameScreen implements Screen{
         GameManager.drawEnemies(game.batch);
         game.batch.end();
 
-        testing.setProjectionMatrix(gameCamera.combined);
-        testing.begin(ShapeRenderer.ShapeType.Line);
-        testing.setColor(Color.RED);
         testing.rect(player.hitBox.x, player.hitBox.y, player.hitBox.getWidth(), player.hitBox.getHeight());
 
         testing.setColor(Color.BLUE);
-        testing.rect(enemy.hitBox.x, enemy.hitBox.y, enemy.hitBox.getWidth(), enemy.hitBox.getHeight());
+        //testing.rect(enemy.hitBox.x, enemy.hitBox.y, enemy.hitBox.getWidth(), enemy.hitBox.getHeight());
+
+        testing.rect(player.getPosX() - 1f/2f - 0.1f, player.getPosY() + -1.4f, 6f, 1.6f);
 
         /*for(int i = 0; i < GameManager.testing().size(); i++) {
             testing.rect(GameManager.testing().get(i).x, GameManager.testing().get(i).y, GameManager.testing().get(i).getWidth(), GameManager.testing().get(i).height);

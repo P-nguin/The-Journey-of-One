@@ -28,6 +28,9 @@ public class InputHandler implements InputProcessor {
         if(keycode == Keys.S) {
             player.setDownMove(true);
         }
+        if(keycode == Keys.F) {
+            player.attack(2);
+        }
         return false;
     }
 
