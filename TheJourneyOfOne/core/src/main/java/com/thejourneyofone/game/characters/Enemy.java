@@ -9,18 +9,23 @@ import com.thejourneyofone.game.Resources.CharacterOptions;
 import com.thejourneyofone.game.Resources.CharacterAnimations;
 
 public class Enemy extends Character {
-
     private float detectionRange;
     private float cautionRange;
     private float attackRange;
 
-    public Enemy(float health, float speed, float damage, float x, float y, float hitBoxWidth, float hitBoxHeight, CharacterOptions characterType, CharacterAnimations animations, float detectionRange, float cautionRange, float attackRange) {
+    private float attackDelay;
+    private float attackCnt;
+
+    public Enemy(float health, float speed, float damage, float attackDelay,  float x, float y, float hitBoxWidth, float hitBoxHeight, CharacterOptions characterType, CharacterAnimations animations, float detectionRange, float cautionRange, float attackRange) {
         super(health, speed, damage, x, y, hitBoxWidth, hitBoxHeight, characterType, animations);
 
         //To avoid having to take the square root when comparing distance.
         this.detectionRange = detectionRange*detectionRange;
         this.cautionRange = cautionRange;
         this.attackRange = attackRange;
+
+        this.attackDelay = attackDelay;
+        attackCnt = 0;
     }
 
     @Override
@@ -32,7 +37,6 @@ public class Enemy extends Character {
         updateAnimation(dt);
     }
 
-    @Override
     public void updateMove(float dt) {
 
         //preconditions, not attacking, not damaged, not dead
@@ -41,7 +45,7 @@ public class Enemy extends Character {
         Vector2 playerPos = GameManager.getPlayerPos();
         Vector2 curPos = new Vector2(getPosX(), getPosY());
         float distance = curPos.dst2(playerPos);
-        if(distance <= attackRange) {
+        if(distance <= attackRange && canAttack(dt)) {
             attack(1);
         }
         else if(distance <= cautionRange) { //Move Half Speed
@@ -56,5 +60,14 @@ public class Enemy extends Character {
 
     private Vector2 getDir(Vector2 playerPos, Vector2 curPos) {
         return playerPos.sub(curPos).nor();
+    }
+
+    private boolean canAttack(float dt) {
+        attackCnt += dt;
+        if(attackCnt >= attackDelay) {
+            attackCnt -= attackDelay;
+            return true;
+        }
+        return false;
     }
 }

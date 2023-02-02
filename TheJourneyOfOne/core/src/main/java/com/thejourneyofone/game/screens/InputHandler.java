@@ -32,7 +32,7 @@ public class InputHandler implements InputProcessor {
             player.attack(2);
         }
         if(keycode == Keys.SPACE) {
-            player.block();
+            player.setBlock(true);
         }
         return false;
     }
@@ -50,6 +50,9 @@ public class InputHandler implements InputProcessor {
         }
         if(keycode == Keys.S) {
             player.setDownMove(false);
+        }
+        if(keycode == Keys.SPACE) {
+            player.setBlock(false);
         }
         return false;
     }

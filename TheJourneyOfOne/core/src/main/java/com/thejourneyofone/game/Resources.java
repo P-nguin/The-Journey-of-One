@@ -23,7 +23,7 @@ public class Resources {
         animationMap = new HashMap<>();
         textureMap = new HashMap<>();
                                     //idle,     kneel,  run,    attack1,    attack2,    block       damage,     death
-        float[][] animationTimes = {{.2f,       .1f,    .1f,    .1f,        0.095f,     .1f,        .1f,        .11f},  // storms of swords
+        float[][] animationTimes = {{.2f,       .1f,    .1f,    .1f,        0.095f,     .1f,        .13f,        .11f},  // storms of swords
                                     {.2f,       .1f,    .1f,    .1f,        .12f,       .1f,        .1f,        .1f},   // something
                                     {.2f,       .1f,    .1f,    .1f,        .12f,       .1f,        .1f,        .1f}};  // something
 
