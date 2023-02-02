@@ -1,0 +1,92 @@
+{
+    "activeFile": "level1.tiled-project.tmx",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "TX Tileset Wall.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "borders.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "cornerLeftTop.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "cornerRightTop.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "ending.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "grass.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "level1.tiled-project.tmx": {
+            "scale": 2.68375,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 239.59012575687007,
+                "y": 159.85095482068004
+            }
+        },
+        "stair.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "tiles.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "unbroken.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "unbrokenhorz.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "up.tsx": {
+            "scaleInEditor": 1
+        },
+        "wall.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "walls.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        }
+    },
+    "last.imagePath": "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels",
+    "map.lastUsedFormat": "tmx",
+    "openFiles": [
+        "level1.tiled-project.tmx",
+        "tiles.tsx"
+    ],
+    "project": "",
+    "recentFiles": [
+        "ending.tsx",
+        "unbrokenhorz.tsx",
+        "up.tsx",
+        "unbroken.tsx",
+        "stair.tsx",
+        "cornerLeftTop.tsx",
+        "cornerRightTop.tsx",
+        "borders.tsx",
+        "grass.tsx",
+        "TX Tileset Wall.tsx",
+        "walls.tsx",
+        "wall.tsx"
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 116,
+        "width": 96
+    }
+}

@@ -8,9 +8,11 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.utils.viewport.*;
 import com.thejourneyofone.game.GameManager;
 import com.thejourneyofone.game.Main;
+import com.thejourneyofone.game.TileMapHelper;
 import com.thejourneyofone.game.characters.Player;
 import com.thejourneyofone.game.characters.StormOfSwordsEnemy;
 
@@ -30,10 +32,14 @@ public class GameScreen implements Screen{
 
     public ShapeRenderer testing;
 
+    private OrthogonalTiledMapRenderer orthogonalTiledMapRenderer;
+    private TileMapHelper tileMapHelper;
+
     public GameScreen(Main game) {
         this.game = game;
 
         gameCamera = new OrthographicCamera();
+        gameCamera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         gamePort = new ScreenViewport(gameCamera);
         gamePort.setUnitsPerPixel(1/PPM);
         gamePort.update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
@@ -50,6 +56,9 @@ public class GameScreen implements Screen{
         texture = new Texture("libgdx.png");
 
         testing = new ShapeRenderer();
+
+        this.tileMapHelper = new TileMapHelper();
+        this.orthogonalTiledMapRenderer = new OrthogonalTiledMapRenderer(tileMapHelper.setupMap(), 1/PPM);
     }
 
     @Override
@@ -70,6 +79,7 @@ public class GameScreen implements Screen{
         GameManager.updateAttack(delta);
 
         game.batch.setProjectionMatrix(gameCamera.combined);
+        orthogonalTiledMapRenderer.setView(gameCamera);
         game.batch.begin();
         game.batch.draw(texture, 0, 0);
 
@@ -90,6 +100,8 @@ public class GameScreen implements Screen{
             GameManager.testing().remove(i); i--;
         } */
         testing.end();
+
+        orthogonalTiledMapRenderer.render();
     }
 
     @Override
