@@ -8,7 +8,7 @@
     ],
     "fileStates": {
         "TX Tileset Grass.tsx": {
-            "scaleInDock": 1,
+            "scaleInDock": 2,
             "scaleInEditor": 1
         },
         "TX Tileset Wall.tsx": {
@@ -24,30 +24,39 @@
             "scaleInEditor": 1
         },
         "broken.tsx": {
-            "scaleInDock": 1,
+            "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
+        "bush1.tsx": {
+            "scaleInDock": 2,
             "scaleInEditor": 1
         },
         "bush2.tsx": {
+            "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
+        "chairSide1.tsx": {
+            "scaleInDock": 2,
             "scaleInEditor": 1
         },
         "cornerLeftBottom.tsx": {
-            "scaleInDock": 4,
+            "scaleInDock": 2,
             "scaleInEditor": 32
         },
         "cornerLeftTop.tsx": {
-            "scaleInDock": 11,
+            "scaleInDock": 2,
             "scaleInEditor": 1
         },
         "cornerRightBottom.tsx": {
-            "scaleInDock": 1,
+            "scaleInDock": 2,
             "scaleInEditor": 1
         },
         "cornerRightTop.tsx": {
-            "scaleInDock": 1,
+            "scaleInDock": 2,
             "scaleInEditor": 1
         },
         "door.tsx": {
-            "scaleInDock": 1,
+            "scaleInDock": 2,
             "scaleInEditor": 1
         },
         "ending.tsx": {
@@ -55,6 +64,7 @@
             "scaleInEditor": 1
         },
         "graa2.tsx": {
+            "scaleInDock": 2,
             "scaleInEditor": 1
         },
         "grass.tsx": {
@@ -62,6 +72,7 @@
             "scaleInEditor": 1
         },
         "grass1.tsx": {
+            "scaleInDock": 2,
             "scaleInEditor": 1
         },
         "height.tsx": {
@@ -73,10 +84,11 @@
             "scaleInEditor": 1
         },
         "horz.tsx": {
-            "scaleInDock": 1,
+            "scaleInDock": 2,
             "scaleInEditor": 1
         },
         "lamp.tsx": {
+            "scaleInDock": 2,
             "scaleInEditor": 1
         },
         "level1.tiled-project.tmx": {
@@ -96,14 +108,31 @@
             "scaleInEditor": 1
         },
         "map1.tmx": {
-            "scale": 0.33,
-            "selectedLayer": 1,
+            "scale": 1,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 1115.1515151515152,
-                "y": 1136.3636363636365
+                "x": 1235.5,
+                "y": 949
             }
         },
+        "rip1.tsx": {
+            "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
+        "rip2.tsx": {
+            "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
+        "rip3.tsx": {
+            "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
         "rock1.tsx": {
+            "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
+        "rock2.tsx": {
+            "scaleInDock": 2,
             "scaleInEditor": 1
         },
         "shortwall.tsx": {
@@ -111,7 +140,7 @@
             "scaleInEditor": 1
         },
         "sign1.tsx": {
-            "scaleInDock": 1,
+            "scaleInDock": 2,
             "scaleInEditor": 1
         },
         "stair.tsx": {
@@ -126,17 +155,28 @@
             "scaleInDock": 3,
             "scaleInEditor": 1
         },
+        "statueGirl.tsx": {
+            "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
         "tiles.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
         "tree1.tsx": {
+            "scaleInDock": 2,
             "scaleInEditor": 1
         },
         "tree1Shadow.tsx": {
+            "scaleInDock": 2,
             "scaleInEditor": 1
         },
         "tree2.tsx": {
+            "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
+        "tree3.tsx": {
+            "scaleInDock": 1,
             "scaleInEditor": 1
         },
         "unbroken.tsx": {
@@ -163,6 +203,14 @@
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
+        "vase1.tsx": {
+            "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
+        "vase2.tsx": {
+            "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
         "vault.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 1
@@ -173,6 +221,10 @@
         },
         "walls.tsx": {
             "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "window.tsx": {
+            "scaleInDock": 2,
             "scaleInEditor": 1
         },
         "window1.tsx": {
@@ -188,32 +240,34 @@
     "map.width": 350,
     "openFiles": [
         "map1.tmx",
-        "broken.tsx",
-        "cornerLeftTop.tsx",
-        "horz.tsx",
-        "cornerLeftBottom.tsx",
-        "cornerRightBottom.tsx",
-        "cornerRightTop.tsx",
-        "longWall.tsx",
-        "upRight.tsx",
-        "upLeft.tsx",
-        "stairs.tsx",
-        "stairsWide.tsx"
+        "sign1.tsx",
+        "vase1.tsx",
+        "chairSide1.tsx",
+        "bush1.tsx",
+        "window.tsx",
+        "door.tsx",
+        "rock2.tsx",
+        "vase2.tsx",
+        "statueGirl.tsx",
+        "rip1.tsx",
+        "rip2.tsx",
+        "rip3.tsx",
+        "tree3.tsx"
     ],
     "project": "",
     "recentFiles": [
+        "tree3.tsx",
+        "rip3.tsx",
+        "rip2.tsx",
+        "rip1.tsx",
+        "statueGirl.tsx",
+        "vase2.tsx",
+        "rock2.tsx",
         "door.tsx",
-        "sign1.tsx",
-        "rock1.tsx",
-        "graa2.tsx",
-        "lamp.tsx",
-        "tree2.tsx",
-        "grass1.tsx",
-        "bush2.tsx",
-        "tree1Shadow.tsx",
-        "tree1.tsx",
-        "TX Tileset Grass.tsx",
-        "stairsWide.tsx"
+        "window.tsx",
+        "bush1.tsx",
+        "chairSide1.tsx",
+        "vase1.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
