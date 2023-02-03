@@ -1,6 +1,8 @@
 package com.thejourneyofone.game;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.sun.org.apache.xpath.internal.operations.Bool;
@@ -18,14 +20,36 @@ public class GameManager {
     private static Queue<Float> attackDamages;
     private static ArrayList<Enemy> enemies, enemiesDead;
     private static Player player;
+    private static TiledMap map;
 
-    public static void init(Player _player) {
+    private static TiledMapTileLayer borderLayer;
+
+    public static void testingMap() {
+        float width = borderLayer.getTileWidth()/GameScreen.PPM;
+        float height = borderLayer.getTileHeight()/GameScreen.PPM;
+
+        for(int i = 0; i < borderLayer.getHeight(); i++) {
+            for(int j = 0; j < borderLayer.getWidth(); j++) {
+                TiledMapTileLayer.Cell cell = borderLayer.getCell(j,i);
+                if(cell != null) {
+                    GameScreen.testing.rect(j*width,i*height,width,height);
+                }
+            }
+        }
+    }
+
+    public static void init(Player _player, TiledMap _map) {
         enemies = new ArrayList<>();
         enemiesDead = new ArrayList<>();
         attacks = new LinkedList<>();
         attackDamages = new LinkedList<>();
         isPlayerAttack = new LinkedList<>();
         player = _player;
+
+        map = _map;
+        borderLayer = (TiledMapTileLayer) map.getLayers().get("bordersAndWalls");
+
+        System.out.println(borderLayer.getOffsetX() + " " + borderLayer.getOffsetY());
     }
 
     public static void update(float dt) {
@@ -71,6 +95,17 @@ public class GameManager {
                 enemiesDead.remove(i); i--;
             }
         }
+    }
+
+    public static boolean canMove(float tarX, float tarY) {
+        int nextTileX = (int)tarX/borderLayer.getTileWidth();
+        int nextTileY = (int)tarY/borderLayer.getTileHeight();
+        TiledMapTileLayer.Cell nextCell = borderLayer.getCell(nextTileX, nextTileY);
+
+        if(nextCell != null) {
+            return false;
+        }
+        return true;
     }
 
     public static void drawEnemies(SpriteBatch batch) {

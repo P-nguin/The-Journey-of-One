@@ -1,6 +1,7 @@
 package com.thejourneyofone.game.characters;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Rectangle;
 import com.thejourneyofone.game.GameManager;
@@ -30,6 +31,15 @@ public class StormOfSwordsEnemy extends Enemy {
     public StormOfSwordsEnemy(float health, float speed) {
         super(health, speed, DAMAGE, ATTACKDELAY, SIZEX / GameScreen.PPM*2.5f, SIZEY / GameScreen.PPM*2.5f, HITBOXWIDTH, HITBOXHEIGHT, CharacterOptions.SwordOfStorms, CharacterAnimations.IdleKneel, 12.f, 8.f, 2.f);
         hasAttacked = -1;
+    }
+
+    @Override
+    public void draw(SpriteBatch batch) {
+        super.draw(batch);
+        Rectangle box = new Rectangle(getPosX() - ATTACKHITBOX1WIDTH/2 - ATTACKHITBOX1WIDTHOFFSET, getPosY() + ATTACKHITBOX1HEIGHTOFFSET, ATTACKHITBOX1WIDTH, ATTACKHITBOX1HEIGHT);
+        GameScreen.testing.rect(box.getX(), box.getY(), box.getWidth(), box.getHeight());
+        box = new Rectangle(getPosX() - ATTACKHITBOX1WIDTH/2 + ATTACKHITBOX1WIDTHOFFSET, getPosY() + ATTACKHITBOX1HEIGHTOFFSET, ATTACKHITBOX1WIDTH, ATTACKHITBOX1HEIGHT);
+        GameScreen.testing.rect(box.getX(), box.getY(), box.getWidth(), box.getHeight());
     }
 
     @Override

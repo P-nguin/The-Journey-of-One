@@ -10,9 +10,14 @@ public class TileMapHelper {
 
     }
 
-    public TiledMap setupMap()
+    public TiledMap getTiledMap()
     {
         tiledMap = new TmxMapLoader().load("levels/map1.tmx");
+
         return tiledMap;
+    }
+
+    public void dispose() {
+        tiledMap.dispose();
     }
 }
