@@ -50,7 +50,7 @@ public class GameManager {
             }
             else {
                 if(player.getHitBox().overlaps(cur)) {
-                    if(player.takeDamage(damage)) {
+                    if(!player.isBlocking() && player.takeDamage(damage)) { //maybe consider direction, idiot
                         System.out.println("Player not deleted because it will break things");
                     }
                     System.out.println("Player Damaged " + player.getHealth());

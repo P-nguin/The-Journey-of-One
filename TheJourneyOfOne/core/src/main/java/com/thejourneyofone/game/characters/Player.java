@@ -32,7 +32,11 @@ public class Player extends Character {
 
     private static final float DAMAGE = 1f;
 
-
+    private boolean isBlocking;
+    private boolean rightMove;
+    private boolean leftMove;
+    private boolean upMove;
+    private boolean downMove;
     private boolean prevLeftMove, prevRightMove, prevUpMove, prevDownMove;
 
     private int hasAttacked;
@@ -57,41 +61,45 @@ public class Player extends Character {
         //Facing right, could replace 0 with a static variable that would be housed in the Resources.
         super(health, speed, DAMAGE, SIZEX / GameScreen.PPM*2.5f, SIZEY / GameScreen.PPM*2.5f, HITBOXWIDTH, HITBOXHEIGHT, CharacterOptions.SwordOfStorms, CharacterAnimations.IdleKneel);
         hasAttacked = -1;
+        isBlocking = true;
     }
 
     @Override
     public void update(float dt) {
-        super.update(dt);
+        setTimeCnt(getTimeCnt() + dt);
+        updateMove(dt);
+        updateHitBox();
+        updateAnimation(dt);
     }
 
     @Override
     public void updateAnimation(float dt) {
         Animation<TextureRegion> ani = Resources.getAnimation(getCharacterType(), getCurAnimation(), getCurDirection());
         if (ani.isAnimationFinished(getTimeCnt()) && ani.getPlayMode() != Animation.PlayMode.LOOP) {
+            boolean wasAttack2 = getCurAnimation().equals(CharacterAnimations.Attack2);
+            setAnimation(CharacterAnimations.Idle);
+            setTimeCnt(0);
+
             //Set correct position
-            if(getCurAnimation().equals(CharacterAnimations.Attack2)) {
+            if(wasAttack2) {
                 hasAttacked = -1;
                 if(getCurDirection() == 0) {
                     move(ATTACK2MOVE, 0);
                 }
                 else move(-ATTACK2MOVE, 0);
             }
-            setAnimation(CharacterAnimations.Idle);
-            setTimeCnt(0);
         } else if (getCurAnimation().equals(CharacterAnimations.Attack1)) {
             int curFrame = ani.getKeyFrameIndex(getTimeCnt());
             if((curFrame == 1 || curFrame == 4) && hasAttacked != curFrame) {
                 attack1();
                 hasAttacked = curFrame;
             }
-            checkKeys();
         } else if(getCurAnimation().equals(CharacterAnimations.Attack2)) {
             int curFrame = ani.getKeyFrameIndex(getTimeCnt());
             if(curFrame == 5 && hasAttacked != curFrame) {
                 attack2();
-                hasAttacked = curFrame; //random constant to prevent attacking multiple times while on the current frame
+                hasAttacked = curFrame;
             }
-            checkKeys();
         }
 
         setTexture(Resources.getAnimation(getCharacterType(), getCurAnimation(), getCurDirection()).getKeyFrame(getTimeCnt()));
@@ -106,21 +114,7 @@ public class Player extends Character {
     }
 
     @Override
-    public void updateMove(float dt) {
-        if(getCurAnimation().equals(CharacterAnimations.Attack1) || getCurAnimation().equals(CharacterAnimations.Attack2)) return;
-        super.updateMove(dt);
-    }
-
-    private void checkKeys() {
-        setDownMove(prevDownMove);
-        setRightMove(prevRightMove);
-        setUpMove(prevUpMove);
-        setLeftMove(prevLeftMove);
-    }
-
-    @Override
     public void attack(int type) {
-        setLeftMove(false); setRightMove(false); setUpMove(false); setDownMove(false);
         if(type == 1 && !getCurAnimation().equals(CharacterAnimations.Attack2)) {
             setAnimation(CharacterAnimations.Attack1);
         }
@@ -151,35 +145,68 @@ public class Player extends Character {
         }
     }
 
-    @Override
-    public void block() {
-        if(!getCurAnimation().equals(CharacterAnimations.Attack2) && !getCurAnimation().equals(CharacterAnimations.Attack1)) {
-            setAnimation(CharacterAnimations.Block);
+    public void setBlock(boolean t) {
+        isBlocking = t;
+        if(isBlocking) setAnimation(CharacterAnimations.Block);
+        else setAnimation(CharacterAnimations.Idle);
+    }
+
+    public boolean isBlocking() {
+        return isBlocking;
+    }
+
+    public void updateMove(float dt) {
+        float x = 0, y = 0;
+        if(rightMove) {
+            x += getSpeed() * dt;
         }
+        if(leftMove) {
+            x -= getSpeed() * dt;
+        }
+        if(upMove) {
+            y += getSpeed() * dt;
+        }
+        if(downMove) {
+            y -= getSpeed() * dt;
+        }
+
+        move(x,y);
     }
 
     @Override
+    public void move(float x, float y) {
+        if(getCurAnimation().equals(CharacterAnimations.Attack1) || getCurAnimation().equals(CharacterAnimations.Attack2) ||
+                getCurAnimation().equals(CharacterAnimations.Block))
+        {
+            return;
+        }
+        else if(x == 0 && y == 0) {
+            setAnimation(CharacterAnimations.Idle);
+            return;
+        }
+
+        setAnimation(CharacterAnimations.Run);
+
+        getSprite().translate(x, y);
+
+        if(x < 0) updateDirection(1);
+        else if(x > 0) updateDirection(0);
+    }
+
     public void setRightMove(boolean t) {
-        super.setRightMove(t);
-        prevRightMove = t;
+        rightMove = t;
     }
 
-    @Override
     public void setLeftMove(boolean t) {
-        super.setLeftMove(t);
-        prevLeftMove = t;
+        leftMove = t;
     }
 
-    @Override
     public void setUpMove(boolean t) {
-        super.setUpMove(t);
-        prevUpMove = t;
+        upMove = t;
     }
 
-    @Override
     public void setDownMove(boolean t) {
-        super.setDownMove(t);
-        prevDownMove = t;
+        downMove = t;
     }
 
     @Override

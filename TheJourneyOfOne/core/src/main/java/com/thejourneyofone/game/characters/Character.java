@@ -20,10 +20,6 @@ public class Character {
     private CharacterAnimations curAnimation;
     private float timeCnt;
 
-    private boolean rightMove;
-    private boolean leftMove;
-    private boolean upMove;
-    private boolean downMove;
     private int curDirection; //0 is right, 1 is left
 
     private float damage;
@@ -47,7 +43,6 @@ public class Character {
     public void update(float dt) {
         timeCnt += dt;
 
-        updateMove(dt);
         updateHitBox();
         updateAnimation(dt);
     }
@@ -66,24 +61,6 @@ public class Character {
         sprite.setRegion(Resources.getAnimation(characterType, curAnimation, curDirection).getKeyFrame(timeCnt));
     }
 
-    public void updateMove(float dt) {
-        float x = 0, y = 0;
-        if(rightMove) {
-            x += getSpeed() * dt;
-        }
-        if(leftMove) {
-            x -= getSpeed() * dt;
-        }
-        if(upMove) {
-            y += getSpeed() * dt;
-        }
-        if(downMove) {
-            y -= getSpeed() * dt;
-        }
-
-        if(x != 0 || y != 0) move(x,y);
-    }
-
     public void move(float x, float y) {
         sprite.translate(x, y);
         setAnimation(CharacterAnimations.Run);
@@ -93,13 +70,8 @@ public class Character {
     }
 
     public void attack(int type) {
-        leftMove = false; rightMove = false; upMove = false; downMove = false;
         if(type == 1) setAnimation(CharacterAnimations.Attack1);
         else if(type == 2) setAnimation(CharacterAnimations.Attack2);
-    }
-
-    public void block() {
-
     }
 
     //true if dead
@@ -144,6 +116,10 @@ public class Character {
         sprite.setRegion(region);
     }
 
+    public Sprite getSprite() {
+        return sprite;
+    }
+
     public float getHealth() {
         return health;
     }
@@ -186,26 +162,6 @@ public class Character {
 
     public void setPosition(float x, float y) {
         sprite.setPosition(x, y);
-    }
-
-    public void setRightMove(boolean t) {
-        if(leftMove & t) leftMove = false;
-        rightMove = t;
-    }
-
-    public void setLeftMove(boolean t) {
-        if(rightMove & t) rightMove = false;
-        leftMove = t;
-    }
-
-    public void setUpMove(boolean t) {
-        if(downMove & t) downMove = false;
-        upMove = t;
-    }
-
-    public void setDownMove(boolean t) {
-        if(upMove & t) upMove = false;
-        downMove = t;
     }
 
     public void setTimeCnt(float timeCnt) {
