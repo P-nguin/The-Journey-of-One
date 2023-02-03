@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.utils.viewport.*;
 import com.thejourneyofone.game.GameManager;
@@ -36,16 +37,17 @@ public class GameScreen implements Screen{
 
         mainCamera = new MainCamera();
 
+        this.tileMapHelper = new TileMapHelper();
+        this.orthogonalTiledMapRenderer = new OrthogonalTiledMapRenderer(tileMapHelper.getTiledMap(), 1/PPM);
+
         player = new Player(5,12);
+        player.setPosition(10,10);
         inputHandler = new InputHandler(player);
 
-        GameManager.init(player);
+        GameManager.init(player, tileMapHelper.getTiledMap());
         GameManager.addEnemy(new StormOfSwordsEnemy(5,3));
 
         testing = new ShapeRenderer();
-
-        this.tileMapHelper = new TileMapHelper();
-        this.orthogonalTiledMapRenderer = new OrthogonalTiledMapRenderer(tileMapHelper.setupMap(), 1/PPM);
     }
 
     @Override
@@ -77,18 +79,9 @@ public class GameScreen implements Screen{
         game.batch.end();
 
         testing.rect(player.hitBox.x, player.hitBox.y, player.hitBox.getWidth(), player.hitBox.getHeight());
-
         testing.setColor(Color.BLUE);
-        //testing.rect(enemy.hitBox.x, enemy.hitBox.y, enemy.hitBox.getWidth(), enemy.hitBox.getHeight());
 
-        //testing.rect(player.getPosX() - 1f/2f - 0.1f, player.getPosY() + -1.4f, 6f, 1.6f);
-
-        /*for(int i = 0; i < GameManager.testing().size(); i++) {
-            testing.rect(GameManager.testing().get(i).x, GameManager.testing().get(i).y, GameManager.testing().get(i).getWidth(), GameManager.testing().get(i).height);
-            GameManager.testing().remove(i); i--;
-        } */
-
-        //testing.rect(gameCamera.position.x - gameCamera.viewportWidth/2, gameCamera.position.y - gameCamera.viewportHeight/2, gameCamera.viewportWidth, gameCamera.viewportHeight);
+        GameManager.testingMap();
 
         testing.end();
     }

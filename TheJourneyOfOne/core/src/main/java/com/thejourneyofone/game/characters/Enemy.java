@@ -56,6 +56,9 @@ public class Enemy extends Character {
             Vector2 dir = getDir(playerPos, curPos);
             move(dir.x*getSpeed()*dt, dir.y*getSpeed()*dt);
         }
+        else {
+            setAnimation(CharacterAnimations.Idle);
+        }
     }
 
     private Vector2 getDir(Vector2 playerPos, Vector2 curPos) {

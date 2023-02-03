@@ -15,6 +15,9 @@ public class Player extends Character {
     public static final int SIZEX = 189;
     public static final int SIZEY= 47;
 
+    private static final float PLAYERWIDTH = 189;
+    private static final float PLAYERHEIGHT = 47;
+
     private static final float HITBOXWIDTH = 1.f;
     private static final float HITBOXHEIGHT = 2.f;
     private static final float HITBOXHEIGHTOFFSET = -1.6f;
@@ -59,7 +62,7 @@ public class Player extends Character {
 
     public Player(float health, float speed) {
         //Facing right, could replace 0 with a static variable that would be housed in the Resources.
-        super(health, speed, DAMAGE, SIZEX / GameScreen.PPM*2.5f, SIZEY / GameScreen.PPM*2.5f, HITBOXWIDTH, HITBOXHEIGHT, CharacterOptions.SwordOfStorms, CharacterAnimations.IdleKneel);
+        super(health, speed, DAMAGE, PLAYERWIDTH / GameScreen.PPM, PLAYERHEIGHT / GameScreen.PPM, HITBOXWIDTH, HITBOXHEIGHT, CharacterOptions.SwordOfStorms, CharacterAnimations.IdleKneel);
         hasAttacked = -1;
         isBlocking = true;
     }
@@ -187,7 +190,9 @@ public class Player extends Character {
 
         setAnimation(CharacterAnimations.Run);
 
-        getSprite().translate(x, y);
+        if(GameManager.canMove(getX() + x, getY() + y)) {
+            getSprite().translate(x, y);
+        }
 
         if(x < 0) updateDirection(1);
         else if(x > 0) updateDirection(0);
