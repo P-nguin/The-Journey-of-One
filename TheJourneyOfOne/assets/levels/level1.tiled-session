@@ -63,6 +63,10 @@
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
+        "generic_estructure1-1-on grass.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
         "graa2.tsx": {
             "scaleInDock": 2,
             "scaleInEditor": 1
@@ -256,6 +260,7 @@
     ],
     "project": "",
     "recentFiles": [
+        "generic_estructure1-1-on grass.tsx",
         "tree3.tsx",
         "rip3.tsx",
         "rip2.tsx",
@@ -266,8 +271,7 @@
         "door.tsx",
         "window.tsx",
         "bush1.tsx",
-        "chairSide1.tsx",
-        "vase1.tsx"
+        "chairSide1.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
