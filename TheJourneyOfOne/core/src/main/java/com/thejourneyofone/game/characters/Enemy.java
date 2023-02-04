@@ -45,8 +45,8 @@ public class Enemy extends Character {
         Vector2 playerPos = GameManager.getPlayerPos();
         Vector2 curPos = new Vector2(getPosX(), getPosY());
         float distance = curPos.dst2(playerPos);
-        if(distance <= attackRange && canAttack(dt)) {
-            attack(1);
+        if(distance <= attackRange) {
+            if(canAttack(dt)) attack(1);
         }
         else if(distance <= cautionRange) { //Move Half Speed
             Vector2 dir = getDir(playerPos, curPos);

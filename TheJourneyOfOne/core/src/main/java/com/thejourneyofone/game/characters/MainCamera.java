@@ -24,6 +24,8 @@ public class MainCamera {
         viewport.setUnitsPerPixel(1/PPM);
         viewport.update(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
+        camera.zoom = 0.5f;
+
         lerp = LERP;
     }
 

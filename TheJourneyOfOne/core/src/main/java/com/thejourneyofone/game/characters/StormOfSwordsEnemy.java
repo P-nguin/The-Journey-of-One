@@ -29,7 +29,8 @@ public class StormOfSwordsEnemy extends Enemy {
     private int hasAttacked;
 
     public StormOfSwordsEnemy(float health, float speed) {
-        super(health, speed, DAMAGE, ATTACKDELAY, SIZEX / GameScreen.PPM*2.5f, SIZEY / GameScreen.PPM*2.5f, HITBOXWIDTH, HITBOXHEIGHT, CharacterOptions.SwordOfStorms, CharacterAnimations.IdleKneel, 12.f, 8.f, 2.f);
+        super(health, speed, DAMAGE, ATTACKDELAY, SIZEX / GameScreen.PPM*2.5f, SIZEY / GameScreen.PPM*2.5f, HITBOXWIDTH, HITBOXHEIGHT, CharacterOptions.SwordOfStorms, CharacterAnimations.IdleKneel,
+                12.f, 8.f, 3.f);
         hasAttacked = -1;
     }
 

@@ -158,7 +158,7 @@ public class Player extends Character {
         return isBlocking;
     }
 
-    public void updateMove(float dt) {
+    public void updateMove(float dt) { // MAKE THE CAN MOVE TWO POINTS INSTEAD, LOWER THE PLAYER POSITION, also fix dash bug
         float x = 0, y = 0;
         if(rightMove) {
             x += getSpeed() * dt;
@@ -190,8 +190,11 @@ public class Player extends Character {
 
         setAnimation(CharacterAnimations.Run);
 
-        if(GameManager.canMove(getX() + x, getY() + y)) {
-            getSprite().translate(x, y);
+        if(GameManager.canMove(getPosX() + x, getPosY())) {
+            getSprite().translate(x,0);
+        }
+        if(GameManager.canMove(getPosX(), getPosY() + y)) {
+            getSprite().translate(0,y);
         }
 
         if(x < 0) updateDirection(1);

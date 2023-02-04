@@ -83,6 +83,11 @@ public class GameScreen implements Screen{
 
         GameManager.testingMap();
 
+        testing.setColor(Color.BROWN);
+        testing.rect(player.getPosX(), player.getPosY(), 1,1);
+        testing.setColor(Color.GOLD);
+        testing.rect(player.getX(), player.getY(), 1,1); //this thing is dumb why do I have it again?
+
         testing.end();
     }
 

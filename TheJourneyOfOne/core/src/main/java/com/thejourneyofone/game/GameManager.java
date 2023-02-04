@@ -1,5 +1,6 @@
 package com.thejourneyofone.game;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
@@ -48,8 +49,6 @@ public class GameManager {
 
         map = _map;
         borderLayer = (TiledMapTileLayer) map.getLayers().get("bordersAndWalls");
-
-        System.out.println(borderLayer.getOffsetX() + " " + borderLayer.getOffsetY());
     }
 
     public static void update(float dt) {
@@ -98,8 +97,8 @@ public class GameManager {
     }
 
     public static boolean canMove(float tarX, float tarY) {
-        int nextTileX = (int)tarX/borderLayer.getTileWidth();
-        int nextTileY = (int)tarY/borderLayer.getTileHeight();
+        int nextTileX = (int)(tarX*GameScreen.PPM/borderLayer.getTileWidth());
+        int nextTileY = (int)(tarY*GameScreen.PPM/borderLayer.getTileHeight());
         TiledMapTileLayer.Cell nextCell = borderLayer.getCell(nextTileX, nextTileY);
 
         if(nextCell != null) {
