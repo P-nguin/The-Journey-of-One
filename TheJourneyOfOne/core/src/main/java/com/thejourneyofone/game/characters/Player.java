@@ -18,6 +18,8 @@ public class Player extends Character {
     private static final float PLAYERWIDTH = 207.9f;
     private static final float PLAYERHEIGHT = 51.7f;
 
+    public static float PLAYERCOLLISIONHEIGHT = 0.2f;
+
     public static float HITBOXWIDTH = 0.49f;
     public static float HITBOXHEIGHT = 0.9f;
     public static float HITBOXHEIGHTOFFSET = -0.67f;
@@ -53,8 +55,11 @@ public class Player extends Character {
 
         GameScreen.testing.rect(hitBox.x, hitBox.y, hitBox.getWidth(), hitBox.getHeight());
         Rectangle box = new Rectangle(getPosX() - ATTACKHITBOX2WIDTHOFFSET - ATTACKHITBOX2WIDTH, getPosY() + ATTACKHITBOX2HEIGHTOFFSET, ATTACKHITBOX2WIDTH, ATTACKHITBOX2HEIGHT);
-        GameScreen.testing.rect(box.getX(), box.getY(), box.getWidth(), box.getHeight());
-        box = new Rectangle(getPosX() + ATTACKHITBOX2WIDTHOFFSET, getPosY() + ATTACKHITBOX2HEIGHTOFFSET, ATTACKHITBOX2WIDTH, ATTACKHITBOX2HEIGHT);
+        //GameScreen.testing.rect(box.getX(), box.getY(), box.getWidth(), box.getHeight());
+        //box = new Rectangle(getPosX() + ATTACKHITBOX2WIDTHOFFSET, getPosY() + ATTACKHITBOX2HEIGHTOFFSET, ATTACKHITBOX2WIDTH, ATTACKHITBOX2HEIGHT);
+        //GameScreen.testing.rect(box.getX(), box.getY(), box.getWidth(), box.getHeight());
+
+        box = new Rectangle(getPosX() - ATTACKHITBOX1WIDTHOFFSET, getPosY() - ATTACKHITBOX1HEIGHTOFFSET, ATTACKHITBOX1WIDTH, ATTACKHITBOX1HEIGHT);
         GameScreen.testing.rect(box.getX(), box.getY(), box.getWidth(), box.getHeight());
 
         //box = new Rectangle(getPosX() + 2.9f + HITBOXWIDTHOFFSET, getPosY() + HITBOXHEIGHTOFFSET, HITBOXWIDTH, HITBOXHEIGHT);

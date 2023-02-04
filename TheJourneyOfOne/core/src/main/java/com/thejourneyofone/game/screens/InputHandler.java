@@ -37,35 +37,43 @@ public class InputHandler implements InputProcessor {
 
         if(keycode == Keys.O) {
             Player.HITBOXHEIGHT += 0.1;
-            System.out.println("hitbox height "+Player.HITBOXHEIGHT);
+            System.out.println("hitbox height "+Player.ATTACKHITBOX1HEIGHT);
         }
         if(keycode == Keys.P) {
             Player.HITBOXHEIGHT -= 0.1;
-            System.out.println("hitbox height "+Player.HITBOXHEIGHT);
+            System.out.println("hitbox height "+Player.ATTACKHITBOX1HEIGHT);
         }
         if(keycode == Keys.K) {
             Player.HITBOXWIDTH += 0.1;
-            System.out.println("hitbox width "+Player.HITBOXWIDTH);
+            System.out.println("hitbox width "+Player.ATTACKHITBOX1WIDTH);
         }
         if(keycode == Keys.L) {
             Player.HITBOXWIDTH -= 0.1;
-            System.out.println("hitbox width "+Player.HITBOXWIDTH);
+            System.out.println("hitbox width "+Player.ATTACKHITBOX1WIDTH);
         }
         if(keycode == Keys.U) {
             Player.HITBOXWIDTHOFFSET += 0.1;
-            System.out.println("hitbox width offset "+Player.HITBOXWIDTHOFFSET);
+            System.out.println("hitbox width offset "+Player.ATTACKHITBOX1WIDTHOFFSET);
         }
         if(keycode == Keys.I) {
             Player.HITBOXWIDTHOFFSET -= 0.1;
-            System.out.println("hitbox width offset "+Player.HITBOXWIDTHOFFSET);
+            System.out.println("hitbox width offset "+Player.ATTACKHITBOX1WIDTHOFFSET);
         }
         if(keycode == Keys.H) {
             Player.HITBOXHEIGHTOFFSET += 0.1;
-            System.out.println("hitbox height offset "+Player.HITBOXHEIGHTOFFSET);
+            System.out.println("hitbox height offset "+Player.ATTACKHITBOX1HEIGHTOFFSET);
         }
         if(keycode == Keys.J) {
             Player.HITBOXHEIGHTOFFSET -= 0.1;
-            System.out.println("hitbox height offset "+Player.HITBOXHEIGHTOFFSET);
+            System.out.println("hitbox height offset "+Player.ATTACKHITBOX1HEIGHTOFFSET);
+        }
+        if(keycode == Keys.N) {
+            Player.PLAYERCOLLISIONHEIGHT -= 0.1;
+            System.out.println("hitbox height offset "+Player.PLAYERCOLLISIONHEIGHT);
+        }
+        if(keycode == Keys.M) {
+            Player.PLAYERCOLLISIONHEIGHT -= 0.1;
+            System.out.println("hitbox height offset "+Player.PLAYERCOLLISIONHEIGHT);
         }
         return false;
     }
