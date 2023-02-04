@@ -1,12 +1,10 @@
 package com.thejourneyofone.game;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import com.thejourneyofone.game.characters.Enemy;
 import com.thejourneyofone.game.characters.Player;
 import com.thejourneyofone.game.screens.GameScreen;
@@ -96,14 +94,28 @@ public class GameManager {
         }
     }
 
-    public static boolean canMove(float tarX, float tarY) {
-        int nextTileX = (int)(tarX*GameScreen.PPM/borderLayer.getTileWidth());
-        int nextTileY = (int)(tarY*GameScreen.PPM/borderLayer.getTileHeight());
-        TiledMapTileLayer.Cell nextCell = borderLayer.getCell(nextTileX, nextTileY);
+    public static boolean canMove(float tarX, float tarY, float curX, float curY) {
+        int nextTileX = (int)(tarX*GameScreen.PPM/(float)borderLayer.getTileWidth());
+        int nextTileY = (int)(tarY*GameScreen.PPM/(float)borderLayer.getTileHeight());
+        int curTileX = (int)(curX*GameScreen.PPM/(float)borderLayer.getTileWidth());
+        int curTileY = (int)(curY*GameScreen.PPM/(float)borderLayer.getTileHeight());
 
-        if(nextCell != null) {
-            return false;
+        int startTile = Math.min(nextTileX, curTileX);
+        int endTile = Math.max(nextTileX, curTileX);
+        for(int i = startTile; i <= endTile; i++) {
+            if(borderLayer.getCell(i, curTileY) != null) {
+                return false;
+            }
         }
+
+        startTile = Math.min(nextTileY, curTileY);
+        endTile = Math.max(nextTileY, curTileY);
+        for(int i = startTile; i <= endTile; i++) {
+            if(borderLayer.getCell(curTileX, i) != null) {
+                return false;
+            }
+        }
+
         return true;
     }
 
@@ -114,10 +126,6 @@ public class GameManager {
         for(Enemy e : enemiesDead) {
             e.draw(batch);
         }
-    }
-
-    public static Queue<Rectangle> testing() {
-        return attacks;
     }
 
     public static void addEnemy(Enemy enemy) {

@@ -195,10 +195,10 @@ public class Player extends Character {
 
         setAnimation(CharacterAnimations.Run);
 
-        if(GameManager.canMove(getPosX() + x, getPosY())) {
+        if(GameManager.canMove(getPosX() + x, getPosY(), getPosX(), getPosY())) {
             getSprite().translate(x,0);
         }
-        if(GameManager.canMove(getPosX(), getPosY() + y)) {
+        if(GameManager.canMove(getPosX(), getPosY() + y, getPosX(), getPosY())) {
             getSprite().translate(0,y);
         }
 
