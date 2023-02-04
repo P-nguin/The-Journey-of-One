@@ -6,7 +6,28 @@
     "activeFile": "map1.tmx",
     "expandedProjectPaths": [
     ],
+    "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/broken.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/tree1.tsx": {
+            "dynamicWrapping": true
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/tree1Shadow.tsx": {
+            "dynamicWrapping": true
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/tree2.tsx": {
+            "dynamicWrapping": true
+        },
+        "C:/Users/Ashley/Downloads/map1.tmx": {
+            "scale": 1,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 1448.5,
+                "y": 1353
+            }
+        },
         "TX Tileset Grass.tsx": {
             "scaleInDock": 2,
             "scaleInEditor": 1
@@ -113,10 +134,10 @@
         },
         "map1.tmx": {
             "scale": 1,
-            "selectedLayer": 4,
+            "selectedLayer": 6,
             "viewCenter": {
                 "x": 1235.5,
-                "y": 949
+                "y": 522
             }
         },
         "rip1.tsx": {
@@ -168,6 +189,7 @@
             "scaleInEditor": 1
         },
         "tree1.tsx": {
+            "dynamicWrapping": false,
             "scaleInDock": 2,
             "scaleInEditor": 1
         },
@@ -176,6 +198,7 @@
             "scaleInEditor": 1
         },
         "tree2.tsx": {
+            "dynamicWrapping": false,
             "scaleInDock": 2,
             "scaleInEditor": 1
         },
@@ -236,8 +259,11 @@
             "scaleInEditor": 1
         }
     },
+    "last.exportedFilePath": "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels",
+    "last.externalTilesetPath": "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels",
     "last.imagePath": "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels",
     "map.height": 250,
+    "map.lastUsedExportFilter": "All Files (*)",
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 8,
     "map.tileWidth": 8,
