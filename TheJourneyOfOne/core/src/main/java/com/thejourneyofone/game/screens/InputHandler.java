@@ -34,6 +34,39 @@ public class InputHandler implements InputProcessor {
         if(keycode == Keys.SPACE) {
             player.setBlock(true);
         }
+
+        if(keycode == Keys.O) {
+            Player.HITBOXHEIGHT += 0.5;
+            System.out.println(Player.HITBOXHEIGHT);
+        }
+        if(keycode == Keys.P) {
+            Player.HITBOXHEIGHT -= 0.5;
+            System.out.println(Player.HITBOXHEIGHT);
+        }
+        if(keycode == Keys.K) {
+            Player.HITBOXWIDTH += 0.5;
+            System.out.println(Player.HITBOXWIDTH);
+        }
+        if(keycode == Keys.L) {
+            Player.HITBOXWIDTH -= 0.5;
+            System.out.println(Player.HITBOXWIDTH);
+        }
+        if(keycode == Keys.U) {
+            Player.HITBOXWIDTHOFFSET += 0.5;
+            System.out.println(Player.HITBOXWIDTHOFFSET);
+        }
+        if(keycode == Keys.I) {
+            Player.HITBOXWIDTHOFFSET -= 0.5;
+            System.out.println(Player.HITBOXWIDTHOFFSET);
+        }
+        if(keycode == Keys.H) {
+            Player.HITBOXHEIGHTOFFSET += 0.5;
+            System.out.println(Player.HITBOXHEIGHTOFFSET);
+        }
+        if(keycode == Keys.J) {
+            Player.HITBOXHEIGHTOFFSET -= 0.5;
+            System.out.println(Player.HITBOXHEIGHTOFFSET);
+        }
         return false;
     }
 

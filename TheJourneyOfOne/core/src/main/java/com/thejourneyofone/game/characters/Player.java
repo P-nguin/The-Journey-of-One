@@ -18,20 +18,20 @@ public class Player extends Character {
     private static final float PLAYERWIDTH = 189;
     private static final float PLAYERHEIGHT = 47;
 
-    private static final float HITBOXWIDTH = 1.f;
-    private static final float HITBOXHEIGHT = 2.f;
-    private static final float HITBOXHEIGHTOFFSET = -1.6f;
-    private static final float HITBOXWIDTHOFFSET = -0.2f;
-    private static final float ATTACKHITBOX1WIDTH = 3.9f;
-    private static final float ATTACKHITBOX1HEIGHT = 1.6f;
-    private static final float ATTACKHITBOX1HEIGHTOFFSET = -1.4f; //FUTURE MAKE THE SECOND SWIPE SMALLER BUT HEY WHO REALLY CARES?
-    private static final float ATTACKHITBOX1WIDTHOFFSET = 1.5f;
-    private static final float ATTACKHITBOX2WIDTH = 6.4f;
-    private static final float ATTACKHITBOX2HEIGHT = 1.6f;
-    private static final float ATTACKHITBOX2HEIGHTOFFSET = -1.4f; //FUTURE MAKE THE SECOND SWIPE SMALLER BUT HEY WHO REALLY CARES?
-    private static final float ATTACKHITBOX2WIDTHOFFSET = -0.6f;
+    public static float HITBOXWIDTH = 1.f;
+    public static float HITBOXHEIGHT = 2.f;
+    public static float HITBOXHEIGHTOFFSET = -1.6f;
+    public static float HITBOXWIDTHOFFSET = -0.2f;
+    public static float ATTACKHITBOX1WIDTH = 3.9f;
+    public static float ATTACKHITBOX1HEIGHT = 1.6f;
+    public static float ATTACKHITBOX1HEIGHTOFFSET = -1.4f; //FUTURE MAKE THE SECOND SWIPE SMALLER BUT HEY WHO REALLY CARES?
+    public static float ATTACKHITBOX1WIDTHOFFSET = 1.5f;
+    public static float ATTACKHITBOX2WIDTH = 6.4f;
+    public static float ATTACKHITBOX2HEIGHT = 1.6f;
+    public static float ATTACKHITBOX2HEIGHTOFFSET = -1.4f; //FUTURE MAKE THE SECOND SWIPE SMALLER BUT HEY WHO REALLY CARES?
+    public static float ATTACKHITBOX2WIDTHOFFSET = -0.6f;
 
-    private static final float ATTACK2MOVE = 3.5f;
+    public static  float ATTACK2MOVE = 3.5f;
 
     private static final float DAMAGE = 1f;
 
@@ -50,14 +50,17 @@ public class Player extends Character {
     @Override
     public void draw(SpriteBatch batch) { //TESTING PURPOSES
         super.draw(batch);
+
+        GameScreen.testing.rect(hitBox.x, hitBox.y, hitBox.getWidth(), hitBox.getHeight());
         Rectangle box = new Rectangle(getPosX() - ATTACKHITBOX2WIDTHOFFSET - ATTACKHITBOX2WIDTH, getPosY() + ATTACKHITBOX2HEIGHTOFFSET, ATTACKHITBOX2WIDTH, ATTACKHITBOX2HEIGHT);
         GameScreen.testing.rect(box.getX(), box.getY(), box.getWidth(), box.getHeight());
         box = new Rectangle(getPosX() + ATTACKHITBOX2WIDTHOFFSET, getPosY() + ATTACKHITBOX2HEIGHTOFFSET, ATTACKHITBOX2WIDTH, ATTACKHITBOX2HEIGHT);
         GameScreen.testing.rect(box.getX(), box.getY(), box.getWidth(), box.getHeight());
-        box = new Rectangle(getPosX() + 2.9f + HITBOXWIDTHOFFSET, getPosY() + HITBOXHEIGHTOFFSET, HITBOXWIDTH, HITBOXHEIGHT);
-        GameScreen.testing.rect(box.getX(), box.getY(), box.getWidth(), box.getHeight());
-        box = new Rectangle(getPosX() - 2.9f - HITBOXWIDTHOFFSET*2, getPosY() + HITBOXHEIGHTOFFSET, HITBOXWIDTH, HITBOXHEIGHT);
-        GameScreen.testing.rect(box.getX(), box.getY(), box.getWidth(), box.getHeight());
+
+        //box = new Rectangle(getPosX() + 2.9f + HITBOXWIDTHOFFSET, getPosY() + HITBOXHEIGHTOFFSET, HITBOXWIDTH, HITBOXHEIGHT);
+        //GameScreen.testing.rect(box.getX(), box.getY(), box.getWidth(), box.getHeight());
+        //box = new Rectangle(getPosX() - 2.9f - HITBOXWIDTHOFFSET*2, getPosY() + HITBOXHEIGHTOFFSET, HITBOXWIDTH, HITBOXHEIGHT);
+        //GameScreen.testing.rect(box.getX(), box.getY(), box.getWidth(), box.getHeight());
     }
 
     public Player(float health, float speed) {
@@ -111,9 +114,11 @@ public class Player extends Character {
     @Override
     public void updateHitBox() {
         if(getCurDirection() == 1) {
-            setHitBoxPosition(getPosX() - HITBOXWIDTH/2 - HITBOXWIDTHOFFSET, getPosY() + HITBOXHEIGHTOFFSET);
+            setHitBoxPosition(getPosX() - HITBOXWIDTHOFFSET, getPosY() + HITBOXHEIGHTOFFSET);
         }
-        else setHitBoxPosition(getPosX() - HITBOXWIDTH/2 + HITBOXWIDTHOFFSET, getPosY() + HITBOXHEIGHTOFFSET);
+        else setHitBoxPosition(getPosX() + HITBOXWIDTHOFFSET, getPosY() + HITBOXHEIGHTOFFSET);
+
+        hitBox.setSize(HITBOXWIDTH, HITBOXHEIGHT); //Testing
     }
 
     @Override

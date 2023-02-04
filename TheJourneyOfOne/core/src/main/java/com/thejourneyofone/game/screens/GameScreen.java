@@ -78,7 +78,6 @@ public class GameScreen implements Screen{
         GameManager.drawEnemies(game.batch);
         game.batch.end();
 
-        testing.rect(player.hitBox.x, player.hitBox.y, player.hitBox.getWidth(), player.hitBox.getHeight());
         testing.setColor(Color.BLUE);
 
         GameManager.testingMap();

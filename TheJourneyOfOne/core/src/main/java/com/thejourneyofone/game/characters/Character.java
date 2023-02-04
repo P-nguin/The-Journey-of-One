@@ -35,7 +35,8 @@ public class Character {
         this.curAnimation = animation;
         timeCnt = 0;
 
-        hitBox = new Rectangle(sprite.getX(), sprite.getY(), hitBoxWidth, hitBoxHeight);
+        hitBox = new Rectangle();
+        hitBox.setSize(hitBoxWidth, hitBoxHeight);
 
         setTextureRegion(Resources.getAnimation(characterType, curAnimation, curDirection).getKeyFrame(timeCnt));
     }
