@@ -59,6 +59,9 @@ public class Player extends Character {
         //box = new Rectangle(getPosX() + ATTACKHITBOX2WIDTHOFFSET, getPosY() + ATTACKHITBOX2HEIGHTOFFSET, ATTACKHITBOX2WIDTH, ATTACKHITBOX2HEIGHT);
         //GameScreen.testing.rect(box.getX(), box.getY(), box.getWidth(), box.getHeight());
 
+        box = new Rectangle(getPosX() + ATTACKHITBOX1WIDTHOFFSET, getPosY() + ATTACKHITBOX1HEIGHTOFFSET, ATTACKHITBOX1WIDTH, ATTACKHITBOX1HEIGHT);
+        GameScreen.testing.rect(box.getX(), box.getY(), box.getWidth(), box.getHeight());
+
         box = new Rectangle(getPosX() - ATTACKHITBOX1WIDTHOFFSET, getPosY() - ATTACKHITBOX1HEIGHTOFFSET, ATTACKHITBOX1WIDTH, ATTACKHITBOX1HEIGHT);
         GameScreen.testing.rect(box.getX(), box.getY(), box.getWidth(), box.getHeight());
 

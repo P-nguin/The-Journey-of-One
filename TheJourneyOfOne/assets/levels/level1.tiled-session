@@ -8,25 +8,128 @@
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/TX Tileset Grass.tsx": {
+            "scaleInDock": 1
+        },
         "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/broken.tsx": {
             "scaleInDock": 1
         },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/bush1.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/bush2.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/chairFront.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/chairSide1.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/cornerLeftBottom.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/cornerLeftTop.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/cornerRightBottom.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/cornerRightTop.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/door.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/fountain.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/graa2.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/grass1.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/horz.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/lamp.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/longWall.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/rip1.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/rip2.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/rip3.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/rock1.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/rock2.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/rock3.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/sign1.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/stairs.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/stairsWide.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/statueGirl.tsx": {
+            "scaleInDock": 1
+        },
         "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/tree1.tsx": {
-            "dynamicWrapping": true
+            "dynamicWrapping": true,
+            "scaleInDock": 1
         },
         "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/tree1Shadow.tsx": {
-            "dynamicWrapping": true
+            "dynamicWrapping": true,
+            "scaleInDock": 1
         },
         "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/tree2.tsx": {
-            "dynamicWrapping": true
+            "dynamicWrapping": true,
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/tree3.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/upLeft.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/upRight.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/vase1.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/vase2.tsx": {
+            "scaleInDock": 1
+        },
+        "C:/Users/Ashley/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/Documents/GitHub/The-Journey-of-One/TheJourneyOfOne/assets/levels/window.tsx": {
+            "scaleInDock": 1
         },
         "C:/Users/Ashley/Downloads/map1.tmx": {
-            "scale": 1,
-            "selectedLayer": 1,
+            "scale": 0.5,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 1448.5,
-                "y": 1353
+                "x": 900,
+                "y": 1208
             }
+        },
+        "C:/Users/Ashley/Downloads/stone.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
         },
         "TX Tileset Grass.tsx": {
             "scaleInDock": 2,
@@ -133,11 +236,11 @@
             "scaleInEditor": 1
         },
         "map1.tmx": {
-            "scale": 1,
+            "scale": 0.5,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 1235.5,
-                "y": 522
+                "x": 1190,
+                "y": 1042
             }
         },
         "rip1.tsx": {
@@ -286,6 +389,8 @@
     ],
     "project": "",
     "recentFiles": [
+        "C:/Users/Ashley/Downloads/stone.tsx",
+        "map1.tmx",
         "generic_estructure1-1-on grass.tsx",
         "tree3.tsx",
         "rip3.tsx",
@@ -295,9 +400,7 @@
         "vase2.tsx",
         "rock2.tsx",
         "door.tsx",
-        "window.tsx",
-        "bush1.tsx",
-        "chairSide1.tsx"
+        "window.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
