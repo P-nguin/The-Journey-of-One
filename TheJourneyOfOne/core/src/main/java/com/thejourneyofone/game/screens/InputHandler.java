@@ -37,35 +37,35 @@ public class InputHandler implements InputProcessor {
 
         if(keycode == Keys.O) {
             Player.HITBOXHEIGHT += 0.5;
-            System.out.println(Player.HITBOXHEIGHT);
+            System.out.println("hitbox height "+Player.HITBOXHEIGHT);
         }
         if(keycode == Keys.P) {
             Player.HITBOXHEIGHT -= 0.5;
-            System.out.println(Player.HITBOXHEIGHT);
+            System.out.println("hitbox height "+Player.HITBOXHEIGHT);
         }
         if(keycode == Keys.K) {
             Player.HITBOXWIDTH += 0.5;
-            System.out.println(Player.HITBOXWIDTH);
+            System.out.println("hitbox width "+Player.HITBOXWIDTH);
         }
         if(keycode == Keys.L) {
             Player.HITBOXWIDTH -= 0.5;
-            System.out.println(Player.HITBOXWIDTH);
+            System.out.println("hitbox width "+Player.HITBOXWIDTH);
         }
         if(keycode == Keys.U) {
             Player.HITBOXWIDTHOFFSET += 0.5;
-            System.out.println(Player.HITBOXWIDTHOFFSET);
+            System.out.println("hitbox width offset "+Player.HITBOXWIDTHOFFSET);
         }
         if(keycode == Keys.I) {
             Player.HITBOXWIDTHOFFSET -= 0.5;
-            System.out.println(Player.HITBOXWIDTHOFFSET);
+            System.out.println("hitbox width offset "+Player.HITBOXWIDTHOFFSET);
         }
         if(keycode == Keys.H) {
             Player.HITBOXHEIGHTOFFSET += 0.5;
-            System.out.println(Player.HITBOXHEIGHTOFFSET);
+            System.out.println("hitbox height offset "+Player.HITBOXHEIGHTOFFSET);
         }
         if(keycode == Keys.J) {
             Player.HITBOXHEIGHTOFFSET -= 0.5;
-            System.out.println(Player.HITBOXHEIGHTOFFSET);
+            System.out.println("hitbox height offset "+Player.HITBOXHEIGHTOFFSET);
         }
         return false;
     }

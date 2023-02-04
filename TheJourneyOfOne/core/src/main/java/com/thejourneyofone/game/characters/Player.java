@@ -15,8 +15,8 @@ public class Player extends Character {
     public static final int SIZEX = 189;
     public static final int SIZEY= 47;
 
-    private static final float PLAYERWIDTH = 189;
-    private static final float PLAYERHEIGHT = 47;
+    private static final float PLAYERWIDTH = 207.9f;
+    private static final float PLAYERHEIGHT = 51.7f;
 
     public static float HITBOXWIDTH = 1.f;
     public static float HITBOXHEIGHT = 2.f;
