@@ -18,17 +18,17 @@ public class Player extends Character {
     private static final float PLAYERWIDTH = 207.9f;
     private static final float PLAYERHEIGHT = 51.7f;
 
-    public static float HITBOXWIDTH = 1.f;
-    public static float HITBOXHEIGHT = 2.f;
-    public static float HITBOXHEIGHTOFFSET = -1.6f;
-    public static float HITBOXWIDTHOFFSET = -0.2f;
+    public static float HITBOXWIDTH = 0.49f;
+    public static float HITBOXHEIGHT = 0.9f;
+    public static float HITBOXHEIGHTOFFSET = -0.67f;
+    public static float HITBOXWIDTHOFFSET = -0.3f;
     public static float ATTACKHITBOX1WIDTH = 3.9f;
     public static float ATTACKHITBOX1HEIGHT = 1.6f;
     public static float ATTACKHITBOX1HEIGHTOFFSET = -1.4f; //FUTURE MAKE THE SECOND SWIPE SMALLER BUT HEY WHO REALLY CARES?
     public static float ATTACKHITBOX1WIDTHOFFSET = 1.5f;
     public static float ATTACKHITBOX2WIDTH = 6.4f;
     public static float ATTACKHITBOX2HEIGHT = 1.6f;
-    public static float ATTACKHITBOX2HEIGHTOFFSET = -1.4f; //FUTURE MAKE THE SECOND SWIPE SMALLER BUT HEY WHO REALLY CARES?
+    public static float ATTACKHITBOX2HEIGHTOFFSET = -1.f; //FUTURE MAKE THE SECOND SWIPE SMALLER BUT HEY WHO REALLY CARES?
     public static float ATTACKHITBOX2WIDTHOFFSET = -0.6f;
 
     public static  float ATTACK2MOVE = 3.5f;
