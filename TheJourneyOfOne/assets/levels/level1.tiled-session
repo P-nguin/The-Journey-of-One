@@ -3,7 +3,7 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "map1.tmx",
+    "activeFile": "C:/Users/Ashley/Downloads/map1.tmx",
     "expandedProjectPaths": [
     ],
     "file.lastUsedOpenFilter": "All Files (*)",
@@ -121,10 +121,10 @@
         },
         "C:/Users/Ashley/Downloads/map1.tmx": {
             "scale": 0.5,
-            "selectedLayer": 2,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 900,
-                "y": 1208
+                "x": 1034,
+                "y": 934
             }
         },
         "C:/Users/Ashley/Downloads/stone.tsx": {
@@ -132,7 +132,7 @@
             "scaleInEditor": 1
         },
         "TX Tileset Grass.tsx": {
-            "scaleInDock": 2,
+            "scaleInDock": 1.5,
             "scaleInEditor": 1
         },
         "TX Tileset Wall.tsx": {
@@ -157,6 +157,10 @@
         },
         "bush2.tsx": {
             "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
+        "chairFront.tsx": {
+            "scaleInDock": 1,
             "scaleInEditor": 1
         },
         "chairSide1.tsx": {
@@ -184,6 +188,10 @@
             "scaleInEditor": 1
         },
         "ending.tsx": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "fountain.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 1
         },
@@ -261,6 +269,10 @@
         },
         "rock2.tsx": {
             "scaleInDock": 2,
+            "scaleInEditor": 1
+        },
+        "rock3.tsx": {
+            "scaleInDock": 1,
             "scaleInEditor": 1
         },
         "shortwall.tsx": {
@@ -372,7 +384,7 @@
     "map.tileWidth": 8,
     "map.width": 350,
     "openFiles": [
-        "map1.tmx",
+        "C:/Users/Ashley/Downloads/map1.tmx",
         "sign1.tsx",
         "vase1.tsx",
         "chairSide1.tsx",
@@ -385,22 +397,27 @@
         "rip1.tsx",
         "rip2.tsx",
         "rip3.tsx",
-        "tree3.tsx"
+        "tree3.tsx",
+        "fountain.tsx",
+        "rock3.tsx",
+        "chairFront.tsx",
+        "map1.tmx",
+        "C:/Users/Ashley/Downloads/stone.tsx"
     ],
     "project": "",
     "recentFiles": [
         "C:/Users/Ashley/Downloads/stone.tsx",
         "map1.tmx",
-        "generic_estructure1-1-on grass.tsx",
+        "chairFront.tsx",
+        "rock3.tsx",
+        "fountain.tsx",
         "tree3.tsx",
         "rip3.tsx",
         "rip2.tsx",
         "rip1.tsx",
         "statueGirl.tsx",
         "vase2.tsx",
-        "rock2.tsx",
-        "door.tsx",
-        "window.tsx"
+        "rock2.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
