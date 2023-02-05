@@ -1,3 +1,3 @@
 # The-Journey-of-One
  
-Simple platformer made in libGDX.
+Simple top-down action game made in libGDX.
