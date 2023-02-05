@@ -120,11 +120,11 @@
             "scaleInDock": 1
         },
         "C:/Users/Ashley/Downloads/map1.tmx": {
-            "scale": 0.5,
+            "scale": 0.75,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 1034,
-                "y": 934
+                "x": 915.9999999999999,
+                "y": 1370.6666666666665
             }
         },
         "C:/Users/Ashley/Downloads/stone.tsx": {
@@ -247,8 +247,8 @@
             "scale": 0.5,
             "selectedLayer": 6,
             "viewCenter": {
-                "x": 1190,
-                "y": 1042
+                "x": 1386,
+                "y": 986
             }
         },
         "rip1.tsx": {
@@ -406,8 +406,9 @@
     ],
     "project": "",
     "recentFiles": [
-        "C:/Users/Ashley/Downloads/stone.tsx",
+        "C:/Users/Ashley/Downloads/map1.tmx",
         "map1.tmx",
+        "C:/Users/Ashley/Downloads/stone.tsx",
         "chairFront.tsx",
         "rock3.tsx",
         "fountain.tsx",
@@ -416,8 +417,7 @@
         "rip2.tsx",
         "rip1.tsx",
         "statueGirl.tsx",
-        "vase2.tsx",
-        "rock2.tsx"
+        "vase2.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
